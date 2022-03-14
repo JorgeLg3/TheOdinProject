@@ -129,7 +129,7 @@ main{
 
 .quote-section{
     background-color: #E5E7EB;
-    padding: 100px 60px;
+    padding: 100px 12%;
     color: #1F2937;
 }
 
@@ -137,10 +137,42 @@ main{
     font-size: 36px;
     font-weight: 100;
     text-align: justify;
+    
 }
 
 .quote-author{
     font-size: 25px;
     font-weight: bold;
     text-align: right;
+    margin-top: 10px;
+}
+
+.call-section{
+    margin: 60px 15%;
+    padding: 40px 8%;
+    background-color: #3882F6;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+    align-items: center;
+    gap: 40px;
+}
+
+.call-text{
+    color: white;
+}
+
+.call-text h3{
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.call-button{
+    flex-shrink: 0;
+    background-color: #3882F6;
+    border: solid 2px white;
+    font-size: 20px;
+    color: white;
+    padding: 6px 30px;
+    border-radius: 4px;
 }
