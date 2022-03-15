@@ -3,3 +3,4 @@ In this project the goal is to make a simple implementation off the classic "roc
 ## Skills
 - Javascript
 ## Live Preview
+[Rock-Paper-Scissors game](https://jorgelg3.github.io/TheOdinProject/003-rock-paper-scissors/)
