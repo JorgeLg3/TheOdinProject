@@ -103,6 +103,9 @@ function restartGame(){
     playerPoints = 0;
     computerPoints = 0;
     updatePoints();
+    document.querySelector('.cpu-frame').style.cssText = `background-image: null`;
+    document.querySelector('.user-frame').style.cssText = `background-image: null`;
+    resultText.textContent = '';
     modalContainer.classList.remove('show');
 }
 /* OLD CONSOLE FUNCTION

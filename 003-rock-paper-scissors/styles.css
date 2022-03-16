@@ -6,8 +6,6 @@ body{
     justify-content: center;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
     font-family: 'Press Start 2P', cursive;
     background-color: black;
     color: yellow;
@@ -36,11 +34,12 @@ body{
 }
 
 .score{
-    margin-top: 10px;
+    margin-top: 16px;
 }
 
 #results{
     font-size: 10px;
+    color: white;
 }
 
 /* BUTTONS */
@@ -56,41 +55,73 @@ body{
 .buttons{
     font-family: 'Press Start 2P', cursive;
     background-color: black;
-    color: yellow;
-    border: 2px solid yellow;
+    color: white;
+    border: 2px solid white;
     padding: 10px;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 .buttons:hover{
     background-color: rgb(20,20,20);
+    color: yellow;
+    border-color: yellow;
 }
 
 /* MODAL*/
 
 .modal-container{
     display: flex;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.6);
     align-items: center;
     justify-content: center;
     position: fixed;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
 }
 
 .modal{
-    background-color: white;
+    background-color: rgb(20,20,30);
     width: 60vw;
     padding: 50px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modal-text{
+    color: white;
+}
+#restart{
+    font-family: 'Press Start 2P', cursive;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#restart:hover{
+    background-color: rgb(185, 184, 184);
+    color: rgb(20,20,20);
 }
 
 .show {
     pointer-events: auto;
     opacity: 1;
+  }
+
+  /* FOOTER */
+
+  footer{
+      color: white;
+      font-size: 8px;
+      padding-top: 40px;
+  }
+  a{
+      text-decoration: none;
+      color: yellow;
   }
