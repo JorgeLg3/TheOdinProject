@@ -1,17 +1,23 @@
 function computerPlay(){
-    let randomNumber = Math.floor(Math.random()*3);
+    let randomNumber = Math.floor(Math.random()*5);
     let play;
 
     switch(randomNumber){
         case 0:
-            play = "rock";
+            play = "Rock";
             break;
         case 1: 
-            play = "paper";
+            play = "Paper";
             break;
         case 2:
-            play = "scissors";
+            play = "Scissors";
             break;
+        case 3:
+            play = "Lizard";
+            break;
+        case 4:
+            play = "Spock";
+            break;    
     }
 
     return play;
@@ -30,23 +36,27 @@ function playRound(playerSelection, computerSelection)
 
     if (playerSelection == computerSelection)
     {
-        console.log(`You Tied! ${playerSelection} vs ${computerSelection}`);
+        resultText.textContent = `You Tied! ${playerSelection} vs ${computerSelection}`;
     }
     else if(
-        (playerSelection == 'scissors' && computerSelection == 'paper') ||
-        (playerSelection == 'rock' && computerSelection == 'scissors') ||
-        (playerSelection == 'paper' && computerSelection == 'rock')
+        (playerSelection == 'Scissors' && (computerSelection == 'Paper' || computerSelection == 'Lizard')) ||
+        (playerSelection == 'Rock' && (computerSelection == 'Scissors' || computerSelection == 'Lizard')) ||
+        (playerSelection == 'Paper' && (computerSelection == 'Rock' || computerSelection == 'Spock')) ||
+        (playerSelection == 'Lizard' && (computerSelection == 'Paper' || computerSelection == 'Spock')) ||
+        (playerSelection == 'Spock' && (computerSelection == 'Rock' || computerSelection == 'Scissors'))
     ){
         playerPoint = 1;
-        console.log(`You Win! ${playerSelection} beats ${computerSelection}`);        
+        resultText.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;        
     }
     else if(
-        (playerSelection == 'scissors' && computerSelection == 'rock') ||
-        (playerSelection == 'rock' && computerSelection == 'paper') ||
-        (playerSelection == 'paper' && computerSelection == 'scissors')
+        (playerSelection == 'Scissors' && (computerSelection == 'Rock' || computerSelection == 'Spock')) ||
+        (playerSelection == 'Rock' && (computerSelection == 'Paper' || computerSelection == 'Spock')) ||
+        (playerSelection == 'Paper' && (computerSelection == 'Scissors' || computerSelection == 'Lizard')) ||
+        (playerSelection == 'Lizard' && (computerSelection == 'Scissors' || computerSelection == 'Rock')) ||
+        (playerSelection == 'Spock' && (computerSelection == 'Paper' || computerSelection == 'Lizard'))
     ){
         computerPoint = 1;
-        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);        
+        resultText.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;        
     }
 
     return [playerPoint, computerPoint];
@@ -92,5 +102,7 @@ function playerPlay(e){
     //console.log(this.getAttribute("data-name"));
     playRound(this.getAttribute("data-name"), computerPlay())
 }
+
+const resultText = document.querySelector('#results');
 
 //console.log(game());
