@@ -46,6 +46,9 @@ function playRound(playerSelection, computerSelection)
     let playerPoint = 0;
     let computerPoint = 0;
 
+    document.querySelector('.cpu-frame').style.cssText = `background-image: url('./imgs/${computerSelection.toLowerCase()}.png')`;
+    document.querySelector('.user-frame').style.cssText = `background-image: url('./imgs/${playerSelection.toLowerCase()}.png')`;
+
     if (playerSelection == computerSelection)
     {
         resultText.textContent = `You Tied! ${playerSelection} vs ${computerSelection}`;
