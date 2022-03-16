@@ -76,4 +76,17 @@ function game(){
     return result;
 }
 
-console.log(game());
+const btnScissors = document.querySelector('#scissors-btn');
+btnScissors.addEventListener('click', playerPlay);
+
+const btnPaper = document.querySelector('#paper-btn');
+btnPaper.addEventListener('click', playerPlay);
+
+const btnRock = document.querySelector('#rock-btn');
+btnRock.addEventListener('click', playerPlay);
+
+function playerPlay(){
+    console.log('hola');
+}
+
+//console.log(game());
