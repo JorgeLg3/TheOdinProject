@@ -76,17 +76,21 @@ function game(){
     return result;
 }
 
-const btnScissors = document.querySelector('#scissors-btn');
+/*const btnScissors = document.querySelector('#scissors-btn');
 btnScissors.addEventListener('click', playerPlay);
 
 const btnPaper = document.querySelector('#paper-btn');
 btnPaper.addEventListener('click', playerPlay);
 
 const btnRock = document.querySelector('#rock-btn');
-btnRock.addEventListener('click', playerPlay);
+btnRock.addEventListener('click', playerPlay);*/
 
-function playerPlay(){
-    console.log('hola');
+const buttons = document.querySelectorAll('.buttons');
+buttons.forEach((button) => button.addEventListener('click', playerPlay));
+
+function playerPlay(e){
+    //console.log(this.getAttribute("data-name"));
+    playRound(this.getAttribute("data-name"), computerPlay())
 }
 
 //console.log(game());
