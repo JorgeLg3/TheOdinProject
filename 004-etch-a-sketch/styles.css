@@ -2,18 +2,30 @@
 
 *{
     font-family: 'Press Start 2P', cursive;
+    background-color: rgb(230,230,230);
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
 header{
-    color: red;
+    color: Black;
     text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    margin-bottom: 30px;
 }
 main{
     display: flex;
     align-items: center;
     flex-direction: column;
+    flex: 1;
 }
 
+/*SKETCH*/
 .container{
     background-color: yellow;
     width: 400px;
@@ -31,31 +43,50 @@ main{
     /*width: 25%;
     height: 25%;*/
     flex-shrink: 0;
-    border: 1px solid black;
 }
 
-.hover{
-    background-color: gray;
-}
+/*CONTROLS*/
 
 .controls{
-    background-color: gray;
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .clear{
-    color: red;
+    color: black;
+    background-color: white;
+    border: none;
+    padding: 8px 18px;
+    margin-right: 40px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.clear:hover{
+    background-color: rgb(200, 200, 200);
+    color: gray;
 }
 
 .pallet{
-    padding: 3px;
-    background-color: blue;
+    padding: 2px;
+    /*background-color: rgb(220,220,220);*/
     display: flex;
 }
 
 .color{
     height: 20px;
     width: 20px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+/*FOOTER*/
+
+footer{
+    font-size: 8px;
+}
+a{
+    color:grey;
+    text-decoration: none;
 }

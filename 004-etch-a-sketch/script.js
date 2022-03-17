@@ -1,20 +1,14 @@
 const main = document.querySelector('main');
+
 let currentColor = 'black';
 
+/*SKETCH CONTAINER*/
 const container = document.createElement('div');
 container.classList.add('container');
 main.appendChild(container);
 
 let squareNum = prompt("number os squares by row and column?");
-
-for(let i=0; i<(squareNum**2); i++){
-    const square = document.createElement('div');
-    square.classList.add('square');
-    square.style.width = `${100/squareNum}%`;
-    square.style.height = `${100/squareNum}%`;
-    console.log(`${squareNum**2} ${100/squareNum}%`);
-    container.appendChild(square);
-}
+displayGrid(squareNum);
 
 const controls = document.createElement('div');
 controls.classList.add('controls');
@@ -30,6 +24,19 @@ const colors = ['red', 'blue', 'yellow', 'orange', 'green', 'black'];
 pallet.classList.add('pallet');
 controls.appendChild(pallet);
 
+function displayGrid(squareNum){
+
+    for(let i=0; i<(squareNum**2); i++){
+        const square = document.createElement('div');
+        square.classList.add('square');
+        square.style.width = `${100/squareNum}%`;
+        square.style.height = `${100/squareNum}%`;
+        square.addEventListener('mouseenter', hoverSquare);
+        console.log(`${squareNum**2} ${100/squareNum}%`);
+        container.appendChild(square);
+    }
+}
+
 for(const color of colors){
     const colorFrame = document.createElement('div');
     colorFrame.classList.add('color');
@@ -40,12 +47,6 @@ for(const color of colors){
         currentColor = color;
     })
 }
-
-/*const colorFrames = document.querySelectorAll('.color');
-colorFrames.forEach((frame) => frame.addEventListener('click', changeColor));
-function changeColor(e){
-    console.log(this.getAttribute('background-color'));
-}*/
 
 let isClickDown = false;
 container.addEventListener('mousedown', () => {
@@ -58,13 +59,13 @@ document.addEventListener('mouseup', () =>{
     console.log('clickUp');
 })
 
-const squares = document.querySelectorAll('.square');
-squares.forEach((square) => square.addEventListener('mouseenter', hoverSquare));
-
 function hoverSquare(e){
     if (isClickDown){this.style.backgroundColor = currentColor;}
 }
 
 clearBtn.addEventListener('click', ()=> {
-    squares.forEach((square) => square.classList.remove('hover'));
-});
+    const squares = document.querySelectorAll('.square');
+    squares.forEach((square) => container.removeChild(square));
+    squareNum = prompt("number os squares by row and column?");
+    displayGrid(squareNum);
+})
