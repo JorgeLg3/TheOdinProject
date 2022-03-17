@@ -7,3 +7,10 @@ for(let i=0; i<16; i++){
     square.classList.add('square');
     container.appendChild(square);
 }
+
+const squares = document.querySelectorAll('.square');
+squares.forEach((square) => square.addEventListener('mouseenter', hoverSquare));
+
+function hoverSquare(e){
+    this.classList.add('hover');
+}

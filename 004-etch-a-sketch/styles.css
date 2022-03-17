@@ -19,3 +19,7 @@ header{
     flex-shrink: 0;
     border: 1px solid black;
 }
+
+.hover{
+    background-color: gray;
+}
