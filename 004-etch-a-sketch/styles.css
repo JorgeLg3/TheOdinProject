@@ -1,21 +1,26 @@
+header{
+    color: red;
+}
+
+.clear{
+    color: red;
+}
+
 .container{
     background-color: yellow;
-    width: 500px;
-    height: 500px;
+    width: 720px;
+    height: 720px;
     color: blue;
     border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
 }
-header{
-    color: red;
-}
 
 .square{
     box-sizing: border-box;
     background-color: white;
-    width: 25%;
-    height: 25%;
+    /*width: 25%;
+    height: 25%;*/
     flex-shrink: 0;
     border: 1px solid black;
 }
