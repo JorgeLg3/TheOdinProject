@@ -1,19 +1,28 @@
-header{
-    color: red;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+*{
+    font-family: 'Press Start 2P', cursive;
 }
 
-.clear{
+header{
     color: red;
+    text-align: center;
+}
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .container{
     background-color: yellow;
-    width: 720px;
-    height: 720px;
+    width: 400px;
+    height: 400px;
     color: blue;
     border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
+    cursor: pointer;
 }
 
 .square{
@@ -27,4 +36,26 @@ header{
 
 .hover{
     background-color: gray;
+}
+
+.controls{
+    background-color: gray;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clear{
+    color: red;
+}
+
+.pallet{
+    padding: 3px;
+    background-color: blue;
+    display: flex;
+}
+
+.color{
+    height: 20px;
+    width: 20px;
 }
