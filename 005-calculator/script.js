@@ -1,6 +1,6 @@
-let currentValue;
-let previousValue;
-let operation;
+let currentValue = '';
+let previousValue = '';
+let operation = '';
 
 const currentScreen = document.querySelector('.current');
 const previousScreen = document.querySelector('.previous');
@@ -9,8 +9,8 @@ const buttons = document.querySelectorAll('.number');
 buttons.forEach((button) => button.addEventListener('click', buttonClick));
 
 function buttonClick(e){
-    currentScreen.textContent = this.textContent;
-    currentValue = this.textContent;
+    currentScreen.textContent += this.textContent;
+    currentValue += this.textContent;
 }
 
 const operations = document.querySelectorAll('.operation');
@@ -26,10 +26,32 @@ function operationClick(e){
 
 const solver = document.querySelector('.solver');
 solver.addEventListener('click', () => {
-    previousScreen.textContent = `${previousValue} ${operation} ${currentValue} = 0`;
-    solution = 0;
+    previousScreen.textContent = `${previousValue} ${operation} ${currentValue} =`;
+    solution = operate(previousValue, currentValue, operation);
     previousValue = '';
     currentValue = solution;
-    currentScreen.textContent = 0;
+    currentScreen.textContent = solution;
 
 })
+
+function operate(numA, numB, operator){
+    let solution;
+    switch(operator){
+        case '+':
+            solution = Number(numA) + Number(numB);
+            break;
+        case '-':
+            solution =  Number(numA) - Number(numB);
+            break;
+        case 'x':
+            solution =  Number(numA) * Number(numB);
+            break;
+        case '/':
+            solution =  Number(numA) / Number(numB);
+            break;
+        case '%':
+            solution =  Number(numA) % Number(numB);
+            break;
+    }
+    return Math.round(solution*100)/100;
+}
