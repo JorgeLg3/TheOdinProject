@@ -84,3 +84,9 @@ clearBtn.addEventListener('click', () => {
     currentScreen.textContent = '';
     previousScreen.textContent = '';
 })
+
+const deleteBtn = document.querySelector('.delete');
+deleteBtn.addEventListener('click', () => {
+    currentValue = currentValue.substring(0, currentValue.length - 1);
+    currentScreen.textContent = currentValue;
+})
