@@ -17,21 +17,34 @@ const operations = document.querySelectorAll('.operation');
 operations.forEach((operation) => operation.addEventListener('click', operationClick));
 
 function operationClick(e){
-    currentScreen.textContent = '';
-    previousValue = currentValue;
-    currentValue = '';
-    operation = this.textContent;
-    previousScreen.textContent = `${previousValue} ${operation}`;
+    if(previousValue == '')
+    {
+        currentScreen.textContent = '';
+        previousValue = currentValue;
+        currentValue = '';
+        operation = this.textContent;
+        previousScreen.textContent = `${previousValue} ${operation}`;
+    }
+    else if(currentValue != ''){
+        solution = operate(previousValue, currentValue, operation);
+        currentValue = solution;
+        currentScreen.textContent = '';
+        previousValue = currentValue;
+        currentValue = '';
+        operation = this.textContent;
+        previousScreen.textContent = `${previousValue} ${operation}`;
+    }
 }
 
 const solver = document.querySelector('.solver');
 solver.addEventListener('click', () => {
-    previousScreen.textContent = `${previousValue} ${operation} ${currentValue} =`;
-    solution = operate(previousValue, currentValue, operation);
-    previousValue = '';
-    currentValue = solution;
-    currentScreen.textContent = solution;
-
+    if (previousValue != '' && operation != '' && currentValue != ''){
+        previousScreen.textContent = `${previousValue} ${operation} ${currentValue} =`;
+        solution = operate(previousValue, currentValue, operation);
+        previousValue = '';
+        currentValue = solution;
+        currentScreen.textContent = solution;
+    }
 })
 
 function operate(numA, numB, operator){
@@ -47,7 +60,14 @@ function operate(numA, numB, operator){
             solution =  Number(numA) * Number(numB);
             break;
         case '/':
-            solution =  Number(numA) / Number(numB);
+            if(numB == '0') {
+                currentValue = '';
+                previousValue = '';
+                previousScreen.textContent = '';
+                alert("error: can't divide by 0")
+                return '';
+            }
+            else{solution =  Number(numA) / Number(numB);}
             break;
         case '%':
             solution =  Number(numA) % Number(numB);
@@ -55,3 +75,12 @@ function operate(numA, numB, operator){
     }
     return Math.round(solution*100)/100;
 }
+
+const clearBtn = document.querySelector('.clear');
+clearBtn.addEventListener('click', () => {
+    previousValue = '';
+    currentValue = '';
+    operation = '';
+    currentScreen.textContent = '';
+    previousScreen.textContent = '';
+})
