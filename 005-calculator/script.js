@@ -11,11 +11,16 @@ const buttons = document.querySelectorAll('.number');
 buttons.forEach((button) => button.addEventListener('click', buttonClick));
 
 function buttonClick(e){
-    currentScreen.textContent += this.textContent;
-    currentValue += this.textContent;
+    numberDisplay(this.textContent);
+}
+
+function numberDisplay(number){
+    if (currentValue.length >= 8) {return;}
+    currentScreen.textContent += number;
+    currentValue += number;
     if (finish){
-        currentScreen.textContent = this.textContent;
-        currentValue = this.textContent;
+        currentScreen.textContent = number;
+        currentValue = number;
         finish = false;
         previousScreen.textContent = '';
         previousValue = '';
@@ -27,12 +32,16 @@ const operations = document.querySelectorAll('.operation');
 operations.forEach((operation) => operation.addEventListener('click', operationClick));
 
 function operationClick(e){
+    operationDisplay(this.textContent);
+}
+
+function operationDisplay(entry){
     if(previousValue == '')
     {
         currentScreen.textContent = '';
         previousValue = currentValue;
         currentValue = '';
-        operation = this.textContent;
+        operation = entry;
         previousScreen.textContent = `${previousValue} ${operation}`;
     }
     else if(currentValue != ''){
@@ -41,14 +50,15 @@ function operationClick(e){
         currentScreen.textContent = '';
         previousValue = currentValue;
         currentValue = '';
-        operation = this.textContent;
+        operation = entry;
         previousScreen.textContent = `${previousValue} ${operation}`;
     }
     decimal =false;
 }
 
 const solver = document.querySelector('.solver');
-solver.addEventListener('click', () => {
+solver.addEventListener('click', solveOperation);
+function solveOperation(){
     if (previousValue != '' && operation != '' && currentValue != ''){
         previousScreen.textContent = `${previousValue} ${operation} ${currentValue} =`;
         solution = operate(previousValue, currentValue, operation);
@@ -57,7 +67,7 @@ solver.addEventListener('click', () => {
         currentScreen.textContent = solution;
         finish = true;
     }
-})
+}
 
 function operate(numA, numB, operator){
     let solution;
@@ -99,17 +109,48 @@ clearBtn.addEventListener('click', () => {
 })
 
 const deleteBtn = document.querySelector('.delete');
-deleteBtn.addEventListener('click', () => {
+deleteBtn.addEventListener('click', deleteClick);
+function deleteClick(){
     currentValue = currentValue.substring(0, currentValue.length - 1);
     currentScreen.textContent = currentValue;
-})
+}
 
 const decimalBtn = document.querySelector('.decimal');
-decimalBtn.addEventListener('click', () => {
-    if (currentValue != '' && !decimal){
+decimalBtn.addEventListener('click', pointDisplay); 
+function pointDisplay(){
+    if (currentValue.length >= 8) {return;}
+    if (currentValue != '' && !decimal && !finish){
         currentScreen.textContent += '.';
         currentValue += '.';
         decimal = true;
     }
     console.log(decimal);
+}
+
+document.addEventListener('keydown', (event) =>{
+    const key = event.keyCode;
+    if (key > 95 && key < 106) {
+        numberDisplay(key - 96);
+        return;
+    }
+    switch(key){
+        case 110:
+            pointDisplay();
+            break;
+        case 107:
+            operationDisplay('+');
+            break;
+        case 109:
+            operationDisplay('-');
+            break;
+        case 106:
+            operationDisplay('x');
+            break;
+        case 111:
+            operationDisplay('/');
+            break;
+        case 13:
+            solveOperation();
+            break;
+    }
 })
