@@ -1,6 +1,8 @@
 let currentValue = '';
 let previousValue = '';
 let operation = '';
+let finish = false;
+let decimal = false;
 
 const currentScreen = document.querySelector('.current');
 const previousScreen = document.querySelector('.previous');
@@ -11,6 +13,14 @@ buttons.forEach((button) => button.addEventListener('click', buttonClick));
 function buttonClick(e){
     currentScreen.textContent += this.textContent;
     currentValue += this.textContent;
+    if (finish){
+        currentScreen.textContent = this.textContent;
+        currentValue = this.textContent;
+        finish = false;
+        previousScreen.textContent = '';
+        previousValue = '';
+        decimal = false;
+    }
 }
 
 const operations = document.querySelectorAll('.operation');
@@ -34,6 +44,7 @@ function operationClick(e){
         operation = this.textContent;
         previousScreen.textContent = `${previousValue} ${operation}`;
     }
+    decimal =false;
 }
 
 const solver = document.querySelector('.solver');
@@ -44,6 +55,7 @@ solver.addEventListener('click', () => {
         previousValue = '';
         currentValue = solution;
         currentScreen.textContent = solution;
+        finish = true;
     }
 })
 
@@ -83,10 +95,21 @@ clearBtn.addEventListener('click', () => {
     operation = '';
     currentScreen.textContent = '';
     previousScreen.textContent = '';
+    decimal = false;
 })
 
 const deleteBtn = document.querySelector('.delete');
 deleteBtn.addEventListener('click', () => {
     currentValue = currentValue.substring(0, currentValue.length - 1);
     currentScreen.textContent = currentValue;
+})
+
+const decimalBtn = document.querySelector('.decimal');
+decimalBtn.addEventListener('click', () => {
+    if (currentValue != '' && !decimal){
+        currentScreen.textContent += '.';
+        currentValue += '.';
+        decimal = true;
+    }
+    console.log(decimal);
 })

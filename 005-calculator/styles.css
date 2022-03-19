@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -9,6 +11,7 @@ ul{
 
 a{
     text-decoration: none;
+    font-family: sans-serif;
 }
 
 body{
@@ -23,7 +26,10 @@ header{
 }
 
 main{
-    flex:1;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    display:flex;
 }
 
 .calculator{
@@ -45,8 +51,8 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
+    font-weight: light;
 }
 
 .previous{
@@ -74,7 +80,7 @@ main{
     border-radius: 30px;
     border: none;
     font-size: 26px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
 
@@ -97,5 +103,5 @@ main{
 }
 
 .footer{
-
+    font-family: Helvetica;
 }
