@@ -11,7 +11,7 @@ ul{
 
 a{
     text-decoration: none;
-    font-family: sans-serif;
+    color: rgb(252, 162, 46);
 }
 
 body{
@@ -81,7 +81,7 @@ main{
     border: none;
     font-size: 26px;
     font-family: 'Roboto', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .button.large{
@@ -89,19 +89,34 @@ main{
 }
 
 .style-1{
-    background-color: gray;
+    background-color: rgb(158, 158, 158);
+}
+
+.style-1:hover{
+    background-color: rgb(108, 108, 108);
 }
 
 .style-2{
-    background-color: rgb(30,30,30);
+    background-color: rgb(46, 46, 46);
     color: white;
+}
+
+.style-2:hover{
+    background-color: rgb(86, 86, 86);
+    color: rgb(188, 188, 188);
 }
 
 .style-3{
-    background-color: rgb(240, 115, 57);
+    background-color: rgb(252, 162, 46);
     color: white;
 }
 
-.footer{
-    font-family: Helvetica;
+.style-3:hover{
+    background-color: rgb(156, 103, 33);
+    color: rgb(188, 188, 188);
+}
+
+footer{
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
 }
