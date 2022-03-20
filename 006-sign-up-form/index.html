@@ -5,18 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up form</title>
-    <link rel="stylesheet" href="styles-css">
+    <link rel="stylesheet" href="styles.css">
     <script src="script.js defer"></script>
 </head>
 <body>
     <main>
         <div class="img-container">
+            <!--<img src="./imgs/photo-1580895456895-cfdf02e4c23f.jpeg"> -->
             <div class="tittle-container">
                 <div class="tittle">FORM</div>
             </div>
         </div>
         <div class="content">
-            
+            <div class="text">
+                <p>this is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up now to get started.</p>
+                <p>You know you want to.</p>
+            </div>
+            <form action="" method="get">
+                <h2>Let's do this!</h2>
+                <div class="user">
+                    <label for="firstName">First Name</label>
+                    <input type="text" name="firstName" id="firstName">
+                    <label for="lasttName">Last Name</label>
+                    <input type="text" name="lastName" id="lastName">
+
+                </div>
+                <div class="contact">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" name="number" id="number">
+                </div>
+                <div class="pass-div">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" name="confirm-password" id="confirm-password">
+                </div>
+                <button type="submit">Create Account</button>
+            </form>
+            <div class="login">
+                Already have an account? <a href="#">Log in</a>
+            </div>
         </div>
     </main>
 </body>
