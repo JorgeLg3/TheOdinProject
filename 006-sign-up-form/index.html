@@ -18,8 +18,8 @@
         </div>
         <div class="content">
             <div class="text">
-                <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up now to get started.</p>
-                <p>You know you want to.</p>
+                <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <em>now</em> to get started.</p>
+                <p>You <em>know</em> you want to.</p>
             </div>
             
             <form action="" method="get">
@@ -28,32 +28,35 @@
                     <div class="row">
                         <div class="input">
                             <label for="firstName">FIRST NAME</label>
-                            <input type="text" name="firstName" id="firstName">
+                            <input type="text" name="firstName" id="firstName" minlength="3" maxlength="20" placeholder=" "  required>
                         </div>
                         <div class="input">
                             <label for="lasttName">LAST NAME</label>
-                            <input type="text" name="lastName" id="lastName">
+                            <input type="text" name="lastName" id="lastName"  minlength="3" maxlength="20" placeholder=" " required>
         
                         </div>
                     </div>
                     <div class="row">
                         <div class="input">
                             <label for="email">EMAIL</label>
-                            <input type="email" name="email" id="email">
+                            <input type="email" name="email" id="email" placeholder=" " required>
+                            <div class="requirements">Must be a valid email address.</div>
                         </div>
                         <div class="input">
                             <label for="phone">PHONE NUMBER</label>
-                            <input type="tel" name="number" id="number">
+                            <input type="tel" name="number" id="number" placeholder=" " required>
+                            <div class="requirements">Must be a valid phone number.</div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input">
                             <label for="password">PASSWORD</label>
-                            <input type="password" name="password" id="password">
+                            <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password" name="password" id="password"  minlength="8" maxlength="20" placeholder=" " required>
+                            <div class="requirements">Your password must be at least 8 characters as well as contain at least one uppercase, one lowercase, and one number.</div>
                         </div>
                         <div class="input">
                             <label for="confirm-password">CONFIRM PASSWORD</label>
-                            <input type="password" name="confirm-password" id="confirm-password">
+                            <input type="password" name="confirm-password" id="confirm-password"  minlength="8" maxlength="20" placeholder=" " required>
                         </div>
                     </div>
                 </div>
