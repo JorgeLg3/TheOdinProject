@@ -14,7 +14,7 @@ main{
 }
 
 .img-container{
-   width: min(30vw,66vh);
+   width: 50vw;
    position:relative;
    background-color: blue;
    background-image: url(./imgs/photo-1580895456895-cfdf02e4c23f.jpeg);
@@ -23,7 +23,7 @@ main{
 }
 
 .tittle-container{
-    background-color: rgba(20, 20, 20, 0.3);
+    background-color: rgba(20, 20, 20, 0.5);
     width: 100%;
     height: 10vh;
     display: flex;
@@ -35,6 +35,8 @@ main{
 .tittle{
     color: white;
     margin: auto 20px;
+    font-size: 40px;
+    font-weight: 600;
 }
 
 .content{
@@ -45,6 +47,7 @@ main{
 .text{
     margin-top: 15vh;
     padding: 30px;
+    width: clamp(250px, 60vw, 550px);
 }
 
 .text p{
@@ -128,18 +131,30 @@ form{
 }
 
 button{
-    background-color: rgb(83, 89, 167);
+    background-color: rgb(52, 54, 66);
     border: none;
     width: 200px;
     height: 40px;
     border-radius: 5px;
     margin-top: 35px;
-    margin-left: 30px;
+    margin-left: 40px;
     margin-bottom: 15px;
 }
 
+button:hover{
+    background-color: rgb(113, 126, 202);
+    cursor: pointer;
+}
+
+button:active{
+    transition: 0.1s;
+    color: rgb(107, 105, 105);
+    font-weight: 800;
+    border: solid 1px rgb(196, 196, 196);
+}
+
 .login{
-    padding: 0px 35px;
+    padding: 0px 45px;
     font-size: 12px;
 }
 
@@ -147,4 +162,8 @@ a{
     text-decoration: none;
     color:rgb(200, 255, 0);
     font-weight: bold;
+}
+
+a:hover{
+    color:rgb(120, 153, 3);
 }
