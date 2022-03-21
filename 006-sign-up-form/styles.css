@@ -131,7 +131,7 @@ form{
 }
 
 button{
-    background-color: rgb(52, 54, 66);
+    background-color: rgb(113, 126, 202);
     border: none;
     width: 200px;
     height: 40px;
@@ -142,7 +142,7 @@ button{
 }
 
 button:hover{
-    background-color: rgb(113, 126, 202);
+    background-color: rgb(52, 54, 66);
     cursor: pointer;
 }
 
