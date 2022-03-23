@@ -33,6 +33,7 @@ main{
     flex-direction: column;
     gap: 10px;
     align-items: center;
+    position: relative;
 }
 
 .title{
@@ -56,6 +57,15 @@ main{
     position: fixed;
     bottom: 4rem;
     right: 4rem;
+    cursor: pointer;
+}
+
+.close-button{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
     cursor: pointer;
 }
 

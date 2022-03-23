@@ -58,6 +58,16 @@ function displayOneBook(book){
         readBtn.textContent = 'Not Read'
     }
     display.appendChild(readBtn);
+
+    const closeBtn = document.createElement('button');
+    closeBtn.classList.add('close-button');
+    const closeIcon = document.createElement('span');
+    closeIcon.classList.add('material-icons');
+    closeIcon.textContent = 'close';
+    closeBtn.appendChild(closeIcon);
+    closeBtn.addEventListener('click', deleteBook);
+    display.appendChild(closeBtn);
+
     grid.appendChild(display);
 }
 
@@ -84,5 +94,18 @@ upBtn.addEventListener('click', ()=>{
     console.log(book.info());
     myLibrary.push(book);
     displayOneBook(book);
+    document.getElementById('input-title').value = '';
+    document.getElementById('input-author').value = '';
+    document.getElementById('input-pages').value='';
     closeModal();
 })
+
+//DELETE A BOOK
+function deleteBook(e){
+    const card = e.target.parentNode.parentNode;
+    const title = card.firstChild.textContent;
+    console.log(title);
+    myLibrary = myLibrary.filter((book) => (book.title != title));
+    card.remove();
+    console.log(myLibrary);
+}
