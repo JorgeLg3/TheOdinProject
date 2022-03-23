@@ -8,11 +8,15 @@ body{
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    position: relative;
 }
 
 main{
     flex: 1;
+    position: relative;
 }
+
+/* CONTENT */
 
 .grid{
     display: grid;
@@ -46,4 +50,53 @@ main{
     border-style: none;
     padding: 1rem 2rem;
     margin-top: 1rem;
+}
+
+.add-button{
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+    cursor: pointer;
+}
+
+/* MODAL */
+
+.modal-container{
+    display: flex;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.modal{
+    background-color: rgb(20,20,30);
+    width: 60vw;
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.modal-text{
+    color: white;
+}
+
+#close-modal{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.show {
+    pointer-events: auto;
+    opacity: 1;
 }

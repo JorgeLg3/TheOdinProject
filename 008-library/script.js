@@ -1,3 +1,4 @@
+// BOOK CLASS
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
@@ -13,11 +14,13 @@ Book.prototype.info = function() {
     return `${this.title} by ${this.author}, ${this.pages} pages, `+ ((this.read)?'already read':'not read yet');
 }
 
+//INITIAL LIBRARY
 const book1 = new Book('The Hobbit', 'J.R.R. Tolien', 295, false);
 const book2 = new Book('Game of Thrones', 'George R. R. Martin', 694, true);
 const book3 = new Book('Dune', 'John Schoenherr', 412, false);
 let myLibrary = [book1, book2, book3];
 
+//LIBRARY FUNCTIONS
 function addBookToLibrary(book){
     myLibrary.push(book);
 }
@@ -57,3 +60,14 @@ function displayBooks() {
 }
 
 displayBooks();
+
+//ADD BUTTON (MODAL)
+const modalContainer = document.querySelector('.modal-container');
+const addBtn = document.querySelector(".add-button");
+addBtn.addEventListener('click', () => modalContainer.classList.add('show'));
+
+const closeBtn = document.querySelector('#close-modal');
+closeBtn.addEventListener('click', closeModal);
+function closeModal(e){
+    modalContainer.classList.remove('show');
+}
