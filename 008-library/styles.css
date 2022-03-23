@@ -75,14 +75,15 @@ main{
 }
 
 .modal{
-    background-color: rgb(20,20,30);
-    width: 60vw;
-    padding: 50px;
+    background-color: rgb(81, 71, 95);
+    width: max(60vw, 600px);
+    padding: 20px 0;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     position: relative;
 }
 
@@ -99,4 +100,72 @@ main{
 .show {
     pointer-events: auto;
     opacity: 1;
+}
+
+/* FORM */
+form{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.input{
+    position: relative;
+    width: 200px;
+}
+
+.input label{
+    opacity: 0.3;
+    position: absolute;
+    top: 22px;
+    left: 20px;
+}
+
+.input input{
+    border: 0;
+    padding: 20px 20px 20px 0px;
+    background: #eee;
+}
+
+.input input:focus+label{
+    opacity: 0;
+}
+
+.input input:valid{
+    background-color: rgb(108, 247, 108);
+}
+
+.input input:valid+label{
+    opacity: 0;
+}
+
+.input input:invalid:not(:focus):not(:placeholder-shown){
+    background-color: rgb(241, 128, 128);
+}
+
+.input input:invalid:not(:focus):not(:placeholder-shown) ~ label{
+    opacity: 0;
+}
+
+.input input:invalid:not(:focus):not(:placeholder-shown) ~ .requirements{
+    max-height: 200px;
+    padding: 0 10px 20px 0px;
+}
+
+.requirements{
+    padding: 0 10px 0 0px;
+    max-height: 0;
+    transition: 0.28s;
+    overflow: hidden;
+    color: red;
+    font-style: italic;
+    width: 200px;
+}
+
+#upbook{
+    border-style: none;
+    background:none;
+    cursor: pointer;
 }

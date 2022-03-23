@@ -27,36 +27,38 @@ function addBookToLibrary(book){
 
 const grid = document.querySelector(".grid")
 function displayBooks() {
-    myLibrary.forEach((book) => {
-        const display = document.createElement('div');
-        display.classList.add('card');
+    myLibrary.forEach(displayOneBook);
+}
+    
+function displayOneBook(book){
+    const display = document.createElement('div');
+    display.classList.add('card');
 
-        const title = document.createElement('h3');
-        title.classList.add('title');
-        title.textContent = book.title;
-        display.appendChild(title);
+    const title = document.createElement('h3');
+    title.classList.add('title');
+    title.textContent = book.title;
+    display.appendChild(title);
 
-        const author = document.createElement('h4');
-        author.classList.add('author');
-        author.textContent = book.author;
-        display.appendChild(author);
+    const author = document.createElement('h4');
+    author.classList.add('author');
+    author.textContent = book.author;
+    display.appendChild(author);
 
-        const pages = document.createElement('h3');
-        pages.classList.add('pages');
-        pages.textContent = `Pages: ${book.pages}`;
-        display.appendChild(pages);
+    const pages = document.createElement('h3');
+    pages.classList.add('pages');
+    pages.textContent = `Pages: ${book.pages}`;
+    display.appendChild(pages);
 
-        const readBtn = document.createElement('button');
-        readBtn.classList.add('readBtn');
-        if (book.read){
-            readBtn.textContent = 'Read'
-        }
-        else {
-            readBtn.textContent = 'Not Read'
-        }
-        display.appendChild(readBtn);
-        grid.appendChild(display);
-    })
+    const readBtn = document.createElement('button');
+    readBtn.classList.add('readBtn');
+    if (book.read){
+        readBtn.textContent = 'Read'
+    }
+    else {
+        readBtn.textContent = 'Not Read'
+    }
+    display.appendChild(readBtn);
+    grid.appendChild(display);
 }
 
 displayBooks();
@@ -71,3 +73,16 @@ closeBtn.addEventListener('click', closeModal);
 function closeModal(e){
     modalContainer.classList.remove('show');
 }
+
+//UPLOAD A BOOK
+const upBtn = document.querySelector('#upbook');
+upBtn.addEventListener('click', ()=>{
+    const title = document.getElementById('input-title').value;
+    const author = document.getElementById('input-author').value;
+    const pages = document.getElementById('input-pages').value;
+    const book = new Book(title, author, pages, false);
+    console.log(book.info());
+    myLibrary.push(book);
+    displayOneBook(book);
+    closeModal();
+})
