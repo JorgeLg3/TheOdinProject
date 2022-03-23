@@ -14,6 +14,10 @@ Book.prototype.info = function() {
     return `${this.title} by ${this.author}, ${this.pages} pages, `+ ((this.read)?'already read':'not read yet');
 }
 
+Book.prototype.toggleRead = function() {
+    this.read = ! this.read;
+}
+
 //INITIAL LIBRARY
 const book1 = new Book('The Hobbit', 'J.R.R. Tolien', 295, false);
 const book2 = new Book('Game of Thrones', 'George R. R. Martin', 694, true);
@@ -57,6 +61,7 @@ function displayOneBook(book){
     else {
         readBtn.textContent = 'Not Read'
     }
+    readBtn.addEventListener('click', toggleReadBtn)
     display.appendChild(readBtn);
 
     const closeBtn = document.createElement('button');
@@ -108,4 +113,17 @@ function deleteBook(e){
     myLibrary = myLibrary.filter((book) => (book.title != title));
     card.remove();
     console.log(myLibrary);
+}
+
+//TOGGLE READ
+function toggleReadBtn(e){
+    const title = e.target.parentNode.firstChild.textContent;
+    const book = myLibrary.find((book) => book.title==title);
+    book.toggleRead();
+    if (book.read){
+        this.textContent = 'Read'
+    }
+    else {
+        this.textContent = 'Not Read'
+    }
 }
