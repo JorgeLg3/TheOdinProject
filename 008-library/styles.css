@@ -7,6 +7,7 @@ body{
     display:flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
 }
 
 main{
@@ -15,9 +16,34 @@ main{
 
 .grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100vw;
 }
 
 .card{
-    background-color: gray;
+    background-color: rgb(201, 194, 194);
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.title{
+    font-size: 1.4rem;
+    color: black;
+}
+
+.author,
+.pages{
+    font-size: 1rem;
+    color: gray;
+}
+
+.readBtn{
+    border-style: none;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
 }
