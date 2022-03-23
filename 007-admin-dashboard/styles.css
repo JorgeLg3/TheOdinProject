@@ -1,5 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 *{
     padding: 0;
     margin:0;
+    font-family: 'Roboto', sans-serif;
 }
 
+:root{
+    --color1: blue;
+    --color2: gray;
+    --color3: orange;
+    --color4: white;
+    --textcolor1: white;
+    --textcolor2: black;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+/* LAYOUT */
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.sidebar{
+    grid-row: 1/3;
+}
+
+.header{
+    grid-column: 2/3;
+}
+
+.content{
+    grid-column: 2/3;
+    background-color: var(--color2);
+}
+
+/* HEADER */
+
+.header{
+    display: grid;
+    background-color: var(--color4);
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    padding: 20px;
+}
+
+.search{
+    display: flex;
+}
+.search-icon{
+
+}
+
+.search-input{
+    background-color: var(--color2);
+    border-radius: 50vh;
+    border-style: none;
+    flex: 1;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    background-color: var(--color1);
+    color: var(--textcolor1);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: start;
+    padding: 20px;
+    align-content:flex-start;
+}
+
+.sidebar-section{
+
+}
+
+.sidebar-option{
+    margin-top: 20px;
+}
+
+.sidebar-option a{
+    color: var(--textcolor1);
+}
+
+/* CONTENT */
+
+.content{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    padding: 30px 20px;
+}
+
+.projects{
+    grid-row: 1/3;
+    display: grid;
+    gap: 10px;
+}
+
+.card{
+    background-color: var(--color4);
+    border-radius: 10px;
+}
+
+.announcements{
+    
+}
+
+.announcements-container{
+    border-radius: 10px;
+    background-color: var(--color4);
+}
+
+.announcement{
+    
+}
+
+.trending{
+
+}
+
+.trending-container{
+    border-radius: 10px;
+    background-color: var(--color4);
+}
