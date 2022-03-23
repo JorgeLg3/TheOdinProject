@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
 
 *{
     padding: 0;
@@ -7,10 +12,10 @@
 }
 
 :root{
-    --color1: blue;
-    --color2: gray;
+    --color1: #3b82f6;
+    --color2: #bae6fd;
     --color3: orange;
-    --color4: white;
+    --color4: #ffffff;
     --textcolor1: white;
     --textcolor2: black;
 }
@@ -73,12 +78,28 @@ a{
     grid-template-columns: 1fr;
     gap: 20px;
     justify-items: start;
-    padding: 20px;
+    padding: 20px 10px;
     align-content:flex-start;
 }
 
-.sidebar-section{
+.title{
+    display:flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    gap: 8px;
+}
 
+.title.material-icons{
+    font-size: 26px;
+}
+
+.sidebar.material-icons{
+    color: white;
+}
+
+.sidebar-section{
+    padding: 10px;
 }
 
 .sidebar-option{
@@ -87,6 +108,10 @@ a{
 
 .sidebar-option a{
     color: var(--textcolor1);
+    display:flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 700;
 }
 
 /* CONTENT */
