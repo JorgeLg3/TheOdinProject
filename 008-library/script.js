@@ -56,10 +56,12 @@ function displayOneBook(book){
     const readBtn = document.createElement('button');
     readBtn.classList.add('readBtn');
     if (book.read){
-        readBtn.textContent = 'Read'
+        readBtn.textContent = 'Read';
+        readBtn.style.cssText = 'background-color: #cbd5e1';
     }
     else {
-        readBtn.textContent = 'Not Read'
+        readBtn.textContent = 'Not Read';
+        readBtn.style.cssText = 'background-color: #94a3b8';
     }
     readBtn.addEventListener('click', toggleReadBtn)
     display.appendChild(readBtn);
@@ -122,8 +124,10 @@ function toggleReadBtn(e){
     book.toggleRead();
     if (book.read){
         this.textContent = 'Read'
+        this.style.cssText = 'background-color: #cbd5e1';
     }
     else {
         this.textContent = 'Not Read'
+        this.style.cssText = 'background-color: #94a3b8';
     }
 }

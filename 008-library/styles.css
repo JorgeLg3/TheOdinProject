@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@300;400;500;600;700&family=Roboto:wght@100&display=swap');
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Red Hat Mono', monospace;
+}
+
+::root{
+    --text: #0f172a;
 }
 
 body{
@@ -9,11 +15,24 @@ body{
     align-items: center;
     height: 100vh;
     position: relative;
+    background-color: #e4e4e7;
+    color: var(--text);
 }
 
 main{
     flex: 1;
     position: relative;
+}
+
+header{
+    background-color: #eee;
+    align-self: stretch;
+    text-align: center;
+    font-weight: 700;
+    padding: 30px;
+    font-size: 2.5rem;
+    box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.2);
+    color: var(--text);
 }
 
 /* CONTENT */
@@ -22,11 +41,12 @@ main{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
-    width: 100vw;
+    width: 90vw;
+    margin-top: 5vw;
 }
 
 .card{
-    background-color: rgb(201, 194, 194);
+    background-color: rgb(255, 255, 255);
     padding: 2rem;
     border-radius: 10px;
     display: flex;
@@ -34,23 +54,27 @@ main{
     gap: 10px;
     align-items: center;
     position: relative;
+    box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.2);
 }
 
 .title{
     font-size: 1.4rem;
-    color: black;
+    color: var(--text);
 }
 
 .author,
 .pages{
     font-size: 1rem;
-    color: gray;
+    color: #94a3b8;
 }
 
 .readBtn{
     border-style: none;
     padding: 1rem 2rem;
     margin-top: 1rem;
+    border-radius: 5px;
+    background-color: #64748b;
+    cursor: pointer;
 }
 
 .add-button{
@@ -58,6 +82,16 @@ main{
     bottom: 4rem;
     right: 4rem;
     cursor: pointer;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: none;
+    background-color: #0f172a;
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.4);
+}
+
+.add-button span{
+    color:#e2e8f0;
 }
 
 .close-button{
@@ -85,9 +119,9 @@ main{
 }
 
 .modal{
-    background-color: rgb(81, 71, 95);
-    width: max(60vw, 600px);
-    padding: 20px 0;
+    background-color: #64748b;
+    width: 400px;
+    padding: 40px 0 80px 0;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -99,12 +133,16 @@ main{
 
 .modal-text{
     color: white;
+    padding-bottom: 1rem;
 }
 
 #close-modal{
     position: absolute;
     top: 1rem;
     right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .show {
@@ -135,7 +173,7 @@ form{
 
 .input input{
     border: 0;
-    padding: 20px 20px 20px 0px;
+    padding: 20px 20px 20px 20px;
     background: #eee;
 }
 
@@ -144,7 +182,7 @@ form{
 }
 
 .input input:valid{
-    background-color: rgb(108, 247, 108);
+    background-color: rgb(146, 247, 146);
 }
 
 .input input:valid+label{
@@ -152,7 +190,7 @@ form{
 }
 
 .input input:invalid:not(:focus):not(:placeholder-shown){
-    background-color: rgb(241, 128, 128);
+    background-color: rgb(247, 157, 157);
 }
 
 .input input:invalid:not(:focus):not(:placeholder-shown) ~ label{
@@ -178,4 +216,15 @@ form{
     border-style: none;
     background:none;
     cursor: pointer;
+    padding: 2rem 0 0.2rem 0;
+    color: #0f172a;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-bottom: 2px solid #0f172a;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+    font-weight: 500;
 }
