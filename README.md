@@ -23,3 +23,5 @@ Repository for all my TOP projects.
 **Full Stack Javascript Path**
 
 6. [Sign-up Form](https://jorgelg3.github.io/TheOdinProject/006-sign-up-form/)
+7. [Admin Dashboard](https://jorgelg3.github.io/TheOdinProject/007-admin-dashboard/)
+8. [Library app](https://jorgelg3.github.io/TheOdinProject/008-library/)
