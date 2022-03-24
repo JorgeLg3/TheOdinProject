@@ -27,19 +27,50 @@ const gameBoard = (() => {
         _board.forEach((value,position) => {
             const span = document.querySelector(`#pos-${position} span`);
             span.textContent = '';
-            value = ' ';
-            const cell = span.parentNode;
-            cell.addEventListener('click', () => Game.cellClick(position));
-            
+            _board[position] = ' ';
+            _moves = 0;
         })
     }
-
+    const displayBoard = () =>{
+        _board.forEach((value,position)=>{
+            const span = document.querySelector(`#pos-${position} span`);
+            const cell = span.parentNode;
+            cell.addEventListener('click', () => Game.cellClick(position));
+        })
+    
+    }
+    const checkWinner = (token) => {
+        const winConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ];
+        let win = false;
+        winConditions.forEach((combination)=> {
+            let flag = false;
+            combination.forEach((element)=> {
+                if(_board[element] != token){flag=true;}
+            })
+            if(!flag){
+                console.log('win');
+                win = true;
+            }
+        })
+        return win;
+    }
     return{
         consoleBoard,
         setToken,
         restartBoard,
         getToken,
         getMoves,
+        checkWinner,
+        displayBoard,
     };
 })();
 
@@ -59,14 +90,24 @@ const Game = (() => {
     let _player2Turn = false;
 
     const _move = (position) => {
+        let token;
         if(_player1Turn){
-            gameBoard.setToken('x', position);
+            token = 'x';
         }
         if(_player2Turn){
-            gameBoard.setToken('o', position);
+            token = 'o';
         }
+        gameBoard.setToken(token, position);
         _player1Turn = ! _player1Turn;
         _player2Turn = ! _player2Turn;
+        if(gameBoard.checkWinner(token)){
+            console.log('You win');
+            gameBoard.restartBoard();
+        }
+        if(gameBoard.getMoves()==9){
+            console.log('You tie!');
+            gameBoard.restartBoard();
+        }
     }
 
     const cellClick = (position) => {
@@ -80,14 +121,18 @@ const Game = (() => {
     }
 })();
 
-gameBoard.restartBoard();
-gameBoard.setToken('x', 0);
+//gameBoard.restartBoard();
+//gameBoard.setToken('x', 0);
 gameBoard.setToken('o', 4);
-gameBoard.setToken('o', 2);
+//gameBoard.setToken('o', 2);
+//gameBoard.setToken('o', 6);
+gameBoard.restartBoard();
 gameBoard.consoleBoard();
-//gameBoard.displayBoard();
+gameBoard.displayBoard();
 
 const player1 = Player('jorge');
 player1.sayHello();
+
+//console.log(gameBoard.checkWinner('o'));
 
 
