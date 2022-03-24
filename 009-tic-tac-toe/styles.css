@@ -1,0 +1,153 @@
+
+  
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap');
+:root{
+    --color1: #064e3b;
+    --color2: #ecfdf5;
+    --color3: #34d399;
+    --color4: #a7f3d0;
+    --color5: #6ee7b7;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    color: var(--color1);
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* LAYOUT */
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+main{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    font-size: 3rem;
+    padding: 3rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px 5px 5px var(--color3);
+    background-color: var(--color4);
+}
+
+.players{
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    justify-content: space-between;
+    padding: 2rem 15vmin;
+    font-size: 1rem;
+}
+
+footer{
+    color: var(--color1);
+    font-size: 0.8rem;
+}
+
+a{
+    color: var(--color3);
+}
+
+a:hover{
+    color: var(--color5);
+}
+
+/* BOARD */
+
+.grid {
+    width: min(50vw, 50vh);
+    height: min(50vw, 50vh);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0.2rem;
+
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color3);
+    box-shadow: 5px 5px 20px var(--color4);
+    cursor: pointer;
+}
+.cell:hover {
+    background-color: var(--color5);
+}
+
+.cell span{
+    color: var(--color2);
+    font-size: 8vmin;
+}
+
+.display{
+    margin-top: 1rem;
+}
+
+/* MODAL */
+
+.modal-container{
+    display: flex;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.modal{
+    background-color: var(--color1);
+    width: 400px;
+    padding: 40px 0 80px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.modal h2{
+    color: var(--color2);
+    padding-bottom: 1rem;
+}
+
+.close-modal{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color2);
+    margin-top: 2rem;
+}
+
+.close-modal span{
+    color: var(--color2);
+    font-size: 32px;
+}
+
+.show {
+    pointer-events: auto;
+    opacity: 1;
+}
