@@ -19,8 +19,11 @@ const gameBoard = (() => {
         _board[position] = token;
         _moves++;
         const cell = document.querySelector(`#pos-${position} span`);
-        if (token == 'x') {cell.textContent = 'close';}
+        /*if (token == 'x') {cell.textContent = 'close';}
         else if(token == 'o') {cell.textContent = 'radio_button_unchecked';}
+        else {cell.textContent = '';}*/
+        if (token == 'x') {cell.textContent = 'x';}
+        else if(token == 'o') {cell.textContent = 'o';}
         else {cell.textContent = '';}
     }
     const restartBoard = () => {
@@ -76,18 +79,22 @@ const gameBoard = (() => {
 
 const Player = (name) => {
     const sayHello = () => console.log(`hello! I'm ${name}`);
-    const move = () =>{
+    const getName = () => name;
 
-    }
-
-    return{sayHello, name};
+    return{sayHello, getName};
 }
 
 const Game = (() => {
-    const _player1 = Player('user1');
-    const _player2 = Player('user2');
+    const _player1 = Player('Player 1');
+    const _player2 = Player('Player 2');
     let _player1Turn = true;
     let _player2Turn = false;
+
+    const displayTxt = document.querySelector('.display');
+    const modal = document.querySelector('.modal-container');
+    const modalTxt = modal.querySelector('h2');
+    const closeBtn = document.querySelector('.close-modal');
+    closeBtn.addEventListener('click', ()=> modal.classList.remove('show'));
 
     const _move = (position) => {
         let token;
@@ -98,15 +105,31 @@ const Game = (() => {
             token = 'o';
         }
         gameBoard.setToken(token, position);
-        _player1Turn = ! _player1Turn;
-        _player2Turn = ! _player2Turn;
+
         if(gameBoard.checkWinner(token)){
             console.log('You win');
+            modalTxt.textContent = `${(_player1Turn)?_player1.getName():_player2.getName()} won!`;
+            modal.classList.add('show');
             gameBoard.restartBoard();
         }
         if(gameBoard.getMoves()==9){
             console.log('You tie!');
+            modalTxt.textContent = 'You tied!';
+            modal.classList.add('show');
             gameBoard.restartBoard();
+        }
+
+        _newTurn();
+    }
+
+    const _newTurn = () => {
+        _player1Turn = ! _player1Turn;
+        _player2Turn = ! _player2Turn;
+        if (_player1Turn){
+            displayTxt.textContent = `Turn ${_player1.getName()}`;
+        }
+        if (_player2Turn){
+            displayTxt.textContent = `Turn ${_player2.getName()}`;
         }
     }
 
