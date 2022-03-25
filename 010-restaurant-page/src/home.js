@@ -15,7 +15,7 @@ function createHome(){
     return home;
 }
 
-function loadHome(home){
+function loadHome(){
     const content = document.querySelector('#content');
     const home = createHome();
     content.appendChild(home);
