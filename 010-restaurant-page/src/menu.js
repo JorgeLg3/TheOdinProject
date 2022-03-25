@@ -39,7 +39,13 @@ function createMenu(ramens){
 }
 
 function loadMenu(){
+    const buttons = document.querySelectorAll('nav button');
+    buttons.forEach((button) => button.classList.remove('show'));
+    const menuBtn = document.querySelector('#menu-button');
+    menuBtn.classList.add('show');
+    
     const content = document.querySelector('#content');
+    content.textContent ='';
     const menu = createMenu(ramenList);
     content.appendChild(menu);
 }

@@ -32,6 +32,8 @@ body{
     background-image: url(./imgs/street_food_japan_lens_50mm_prime_restaurant_tokyo-971716.jpg!d);
     background-position: center;
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
 }
 
 header{
@@ -66,10 +68,19 @@ nav ul li button{
     background: none;
     font-size: 1.5rem;
     font-weight: 500;
+    cursor: pointer;
 }
 
-body{
-    
+nav ul li button:hover{
+    color: var(--color3);
+}
+
+.show{
+    border-bottom: 2px solid var(--color2);
+}
+
+main{
+    flex:1;
 }
 
 #content{
@@ -77,6 +88,19 @@ body{
     flex-direction: column;
     align-items: center;
     padding: 3rem;
+}
+
+footer{
+    background-color: var(--color1);
+    color: var(--color2);
+    font-size: 0.8rem;
+    padding: 0.8rem;
+    text-align: center;
+}
+
+footer a{
+    text-decoration: none;
+    color: var(--color3);
 }
 
 /* HOME */
@@ -159,6 +183,12 @@ body{
     flex-direction: column;
     align-items: center;
     box-shadow: 0 5px 5px var(--color5);
+}
+
+.contact-title{
+    text-align: justify;
+    color: var(--color2);
+    padding: 1rem 3rem;
 }
 
 .contact-text{

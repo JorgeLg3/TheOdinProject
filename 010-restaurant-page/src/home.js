@@ -16,7 +16,13 @@ function createHome(){
 }
 
 function loadHome(){
+    const buttons = document.querySelectorAll('nav button');
+    buttons.forEach((button) => button.classList.remove('show'));
+    const homeBtn = document.querySelector('#home-button');
+    homeBtn.classList.add('show');
+    
     const content = document.querySelector('#content');
+    content.textContent ='';
     const home = createHome();
     content.appendChild(home);
 }
