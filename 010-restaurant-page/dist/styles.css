@@ -146,3 +146,32 @@ body{
     bottom: 0.5rem;
     right: 0.5rem;
 }
+
+/* CONTACT */
+
+.contact-container{
+    padding: 2rem 3rem;
+    background-color: var(--color4);
+    font-size: 1.2rem;
+    border-radius: 10px;
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 5px 5px var(--color5);
+}
+
+.contact-text{
+    text-align: justify;
+    color: var(--color2);
+    font-weight: 300;
+    padding: 1rem 3rem;
+}
+
+.map{
+    width: 200px;
+    height: 150px;
+    margin: 2rem;
+    border-radius: 5px;
+    background-color: aqua;
+}
