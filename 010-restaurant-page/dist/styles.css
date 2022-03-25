@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&family=Satisfy&display=swap');
+
 :root{
     --color1: black;
     --color2: white;
@@ -7,6 +9,7 @@
 *{
     padding: 0;
     margin: 0;
+    font-family: 'Rubik', sans-serif;
 }
 
 li{
@@ -33,9 +36,10 @@ header{
 
 header h1{
     color: var(--color2);
-    font-size: 3rem;
+    font-size: 3.5rem;
     text-align: center;
     padding: 3rem;
+    font-family: 'Satisfy', cursive;
 }
 
 nav{
@@ -56,6 +60,7 @@ nav ul li button{
     color: var(--color2);
     background: none;
     font-size: 1.5rem;
+    font-weight: 500;
 }
 
 body{
@@ -65,6 +70,29 @@ body{
 #content{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding: 3rem;
+}
+
+.home-container{
+    padding: 2rem 3rem;
+    background-color: var(--color1);
+    font-size: 1.2rem;
+    border-radius: 10px;
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-text{
+    text-align: justify;
+    color: var(--color2);
+    font-weight: 300;
+    padding: 1rem 3rem;
+}
+
+.home-img{
+    width: 60%;
+    margin: 2rem;
 }
