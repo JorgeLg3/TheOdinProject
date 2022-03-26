@@ -1,3 +1,16 @@
+const searchBtn = document.querySelector('#search-button');
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+});
+searchBtn.addEventListener('click', submitWeather);
+
+function submitWeather(e){
+    const input = document.querySelector('#location');
+    const location = input.value;
+    displayData(getData(location));
+}
+
 console.log('Hello world!');
 
  //CONVENTIONAL VERSION
@@ -71,5 +84,5 @@ function displayData(data){
     })
 }
 const city = 'murcia';
-console.log(displayData(getData(city)));
+//console.log(displayData(getData(city)));
 
