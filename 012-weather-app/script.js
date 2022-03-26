@@ -31,7 +31,7 @@ function submitWeather(e){
 
 async function getData(location){
     try {
-        let response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=bcc19efb154f39f58361cf61886628fd`, {
+        let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=bcc19efb154f39f58361cf61886628fd`, {
             mode: 'cors'
         });
         let catData = await response.json();
