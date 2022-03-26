@@ -16,7 +16,7 @@ function submitWeather(e){
 
  //CONVENTIONAL VERSION
 /*function apiRequest(location){
-    fetch('http://api.openweathermap.org/data/2.5/weather?q=London&APPID=bcc19efb154f39f58361cf61886628fd', {
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=London&APPID=bcc19efb154f39f58361cf61886628fd', {
         mode: 'cors'
     })
     .then(function(response){
