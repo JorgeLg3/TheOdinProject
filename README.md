@@ -25,3 +25,8 @@ Repository for all my TOP projects.
 6. [Sign-up Form](https://jorgelg3.github.io/TheOdinProject/006-sign-up-form/)
 7. [Admin Dashboard](https://jorgelg3.github.io/TheOdinProject/007-admin-dashboard/)
 8. [Library app](https://jorgelg3.github.io/TheOdinProject/008-library/)
+9. [Tic  Tac Toe](https://jorgelg3.github.io/TheOdinProject/009-tic-tac-toe/)
+10. [Restaurant page](https://jorgelg3.github.io/TheOdinProject/010-restaurant-page/dist)
+12. [Weather app](https://jorgelg3.github.io/TheOdinProject/012-weather-app)
+22. [Mini Messageboard](https://mini-message-board-jorge.herokuapp.com/)
+23. [Express Library app](https://express-library-mdn-tutorial.herokuapp.com/catalog)
