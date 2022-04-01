@@ -1,13 +1,11 @@
 const main = document.querySelector('main');
-
+let squareNum = 64;
 let currentColor = 'black';
 
 /*SKETCH CONTAINER*/
 const container = document.createElement('div');
 container.classList.add('container');
 main.appendChild(container);
-
-let squareNum = prompt("number os squares by row and column?");
 displayGrid(squareNum);
 
 const controls = document.createElement('div');
@@ -24,8 +22,27 @@ const colors = ['red', 'blue', 'yellow', 'orange', 'green', 'black'];
 pallet.classList.add('pallet');
 controls.appendChild(pallet);
 
-function displayGrid(squareNum){
+const range = document.createElement('input');
+range.setAttribute('type', 'range');
+range.setAttribute('min', '16');
+range.setAttribute('max', '99');
+range.setAttribute('step', '1');
+range.setAttribute('value', '64');
+controls.appendChild(range);
+range.addEventListener('input', function(){
+    rangeTxt.textContent = range.value + 'px';
+}, false);
+range.addEventListener('change', function(){
+    squareNum = range.value;
+    displayGrid(squareNum);
+}, false);
 
+const rangeTxt = document.createElement('div');
+rangeTxt.textContent = '64px';
+controls.appendChild(rangeTxt);
+
+function displayGrid(squareNum){
+    container.innerHTML = '';
     for(let i=0; i<(squareNum**2); i++){
         const square = document.createElement('div');
         square.classList.add('square');
@@ -66,6 +83,5 @@ function hoverSquare(e){
 clearBtn.addEventListener('click', ()=> {
     const squares = document.querySelectorAll('.square');
     squares.forEach((square) => container.removeChild(square));
-    squareNum = prompt("number os squares by row and column?");
     displayGrid(squareNum);
 })

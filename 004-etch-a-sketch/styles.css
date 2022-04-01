@@ -61,6 +61,7 @@ main{
     margin-right: 40px;
     border-radius: 2px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .clear:hover{
