@@ -1,4 +1,4 @@
-
+let darkMode = false;
 displayData(getData('trondheim')); //default value
 
 const searchBtn = document.querySelector('#search-button');
@@ -55,6 +55,8 @@ function processData(data){
     const max = data.main.temp_max;
     const description = data.weather[0].description;
     const main = data.weather[0].main;
+    const time = data.dt;
+    const timezone = data.timezone;
 
     return {
         place,
@@ -68,57 +70,93 @@ function processData(data){
         min,
         max,
         description,
-        main
+        main,
+        time,
+        timezone,
     }
 }
 
 function displayData(data){
     data.then(function(response){
         const temp = document.querySelector('.temp');
-        temp.textContent = Math.round((response.actualTemp-273.15)*10)/10 + '°C';
+        temp.textContent = Math.round((response.actualTemp-273.15)) + '°C';
         const min = document.querySelector('.min');
-        min.textContent = Math.round((response.min-273.15)*10)/10 + '°C';
+        min.textContent = Math.round((response.min-273.15)) + '°C';
         const max = document.querySelector('.max');
-        max.textContent = Math.round((response.max-273.15)*10)/10 + '°C';
+        max.textContent = Math.round((response.max-273.15)) + '°C';
         const wind = document.querySelector('.wind');
-        wind.textContent = response.wind + 'km/h';
+        wind.textContent = Math.round(response.wind*3600/1000) + 'km/h';
         const humidity = document.querySelector('.humidity');
-        humidity.textContent = response.humidity + '%';
+        humidity.textContent = 'HR: ' + response.humidity + '%';
         const description = document.querySelector('.description');
         description.textContent = response.description;
-        const img = document.querySelector('.img');
-        img.style.cssText = `background-image: url(./weather-icons-png/${getIcon(response.main)})`;
+        
         const city = document.querySelector('.city');
         city.textContent = `${response.place}, ${response.country}`;
-        /*const coords = document.querySelector('.coords');
-        coords.textContent = `${response.lat}, ${response.lon}`;*/
+        const time = document.querySelector('.time');
+        const timestamp = processUnixTime(response.time, response.timezone);
+        time.textContent = `${timestamp.hours.substr(-2)}:${timestamp.minutes.substr(-2)}:${timestamp.minutes.substr(-2)}`;
+        
+        const body = document.querySelector('body');
+        if(timestamp.hours < 7 || timestamp.hours > 21){
+            darkMode = true;
+            body.classList.add('dark-mode');
+        }
+        else {
+            darkMode = false;
+            body.classList.remove('dark-mode');
+        }
+
+        const img = document.querySelector('.img');
+        img.style.cssText = `background-image: url(${getIcon(response.main)})`;
     })
 }
 
 function getIcon(main){
+    let path = './imgs/day-icons/';
+    if(darkMode){
+        path = './imgs/night-icons/';
+    }
     let file = '';
     switch(main){
         case 'Clouds':
-            file = 'Cloudy.png';
+            file = 'cloudy.png';
         break;
         case 'Clear':
-            file = 'Sunny.png';
+            file = 'clear.png';
         break;
         case 'Snow':
-            file = 'OccLightSnow.png';
+            file = 'snow.png';
         break;
         case 'Rain':
-            file = 'HeavyRain.png';
+            file = 'heavyrain.png';
         break;
         case 'Drizzle':
-            file = 'ModRainSwrsDay.png';
+            file = 'modrain.png';
         break;
         case 'Thunderstorm':
-            file = 'CloudRainThunder.png';
+            file = 'thunder.png';
         break;
         default:
-            file = 'Sunny.png';
+            file = 'clear.png';
     }
-    return file;
+    return path + file;
 }
 
+function processUnixTime(unix, timezone){
+    const timeData = new Date(unix * 1000);
+    const hours = "0" + (timeData.getUTCHours() + timezone/3600)%24;
+    const minutes = "0" + timeData.getMinutes();
+    const seconds = "0" + timeData.getSeconds();
+    const day = "0" + timeData.getDay();
+    const month = "0" + timeData.getMonth();
+
+    return{
+        month,
+        day,
+        hours,
+        minutes,
+        seconds
+    };
+
+}
