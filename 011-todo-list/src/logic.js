@@ -3,7 +3,10 @@ const todoFactory = (title, description , dueDate, priority) => {
     const getDescription = () => description;
     const getDate = () => dueDate;
     const getPriority = () => priority;
-    return {getTitle, getDescription, getDate, getPriority, title, description};
+    const _todoDone = false;
+    const getState = () => _todoDone;
+    const setDone = () => _todoDone = false;
+    return {getTitle, getDescription, getDate, getPriority, getState, setDone, title, description};
 }
 
 const projectFactory = (title) => {
@@ -22,7 +25,7 @@ const projectFactory = (title) => {
 }
 
 function initialization(){
-    const todo1 = todoFactory('todo1', 'todo1 description', 'today', 0);
+    const todo1 = todoFactory('todo1');
     const todo2 = todoFactory('todo2', 'todo2 description', 'tomorrow', 1);
     const project1 = projectFactory('project1');
     project1.addTodo(todo1);
@@ -32,9 +35,7 @@ function initialization(){
     console.log(todolist[1]);
     console.log(project1);
 
-    const div = document.createElement('div');
-    div.textContent = 'logic module';
-    document.body.appendChild(div);
+    return project1;
 }
 
 export default initialization;
