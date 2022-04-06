@@ -1,7 +1,7 @@
 import './style.css';
 //import Icon from './icon.png';
-import initialization from './logic';
-import initialDOM from './dom.js';
+import {initialization, todoFactory, projectFactory} from './models';
+import moduleUI from './dom.js';
 
 
 /*const body = document.querySelector('body');
@@ -14,4 +14,19 @@ googleIcons.rel = 'stylesheet';
 googleIcons.href = 'https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined';
 document.head.appendChild(googleIcons);
 
-initialDOM();
+//initialDOM();
+
+moduleUI.initialDisplay();
+let projectList = [];
+projectList.push(initialization());
+moduleUI.displayProject(projectList[0]);
+moduleUI.displayTodo(todoFactory('todo'));
+
+function pushTodo(todo, projectName){
+    const index = projectList.findIndex(x => x.getTitle() == projectName);
+    const newTodo = todoFactory(todo);
+    projectList[index].addTodo(newTodo);
+    return newTodo;
+}
+
+export default pushTodo;

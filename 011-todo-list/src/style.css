@@ -1,5 +1,63 @@
 *{
     margin: 0;
     padding: 0;
-    color: red;
+}
+
+/* LAYOUT */
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header{
+    font-size: 3rem;
+}
+
+main{
+    flex: 1;
+}
+
+/* CONTAINER */
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    background-color: black;
+    gap: 1rem;
+    width: 100%;
+    padding: 2rem;
+}
+
+.card{
+    border-radius: 10px;
+    background-color: red;
+    padding: 1rem;
+}
+
+/* TODO CARD */
+
+.project-title{
+
+}
+
+.todo{
+    display: flex;
+    gap: 0.8rem;
+    margin: 0.5rem;
+}
+
+.check-button{
+
+}
+
+.todo-name{
+
+}
+
+.add-todo-button{
+
 }
