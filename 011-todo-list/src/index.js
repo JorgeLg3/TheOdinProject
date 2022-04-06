@@ -20,13 +20,18 @@ moduleUI.initialDisplay();
 let projectList = [];
 projectList.push(initialization());
 moduleUI.displayProject(projectList[0]);
-moduleUI.displayTodo(todoFactory('todo'));
 
-function pushTodo(todo, projectName){
+function createTodo(todo, projectName){
     const index = projectList.findIndex(x => x.getTitle() == projectName);
     const newTodo = todoFactory(todo);
     projectList[index].addTodo(newTodo);
     return newTodo;
 }
 
-export default pushTodo;
+function createProject(projectName){
+    const newProject = projectFactory(projectName);
+    projectList.push(newProject);
+    return newProject;
+}
+
+export {createTodo, createProject};

@@ -1,6 +1,6 @@
 import initialization from './models';
 import todoFactory from './models';
-import pushTodo from './index.js';
+import {createTodo, createProject} from './index.js';
 /*
 function initialDOM() {
     const header = document.createElement('header');
@@ -90,6 +90,15 @@ const moduleUI = (() =>{
         _main.appendChild(_container);
         _footer.textContent = 'By JorgeLg3 - code here!';
         document.body.appendChild(_footer);
+
+        const addProjectButton = document.createElement('button');
+        addProjectButton.classList.add('material-icons','add-project-button');
+        addProjectButton.textContent = 'post_add';
+        addProjectButton.addEventListener('click', () => {
+            const newProject = createProject('new project');
+            displayProject(newProject);
+        })
+        _main.appendChild(addProjectButton);
     }
 
     const displayProject = (project) => {
@@ -109,8 +118,8 @@ const moduleUI = (() =>{
         addTodoButton.classList.add('material-icons','add-todo-button');
         addTodoButton.textContent = 'add';
         addTodoButton.addEventListener('click', () => {
-            const newTodo = pushTodo('new todo', project.getTitle());
-            displayTodo(newTodo);
+            const newTodo = createTodo('new todo', project.getTitle());
+            displayTodo(todoList, newTodo);
         });
         card.appendChild(addTodoButton);
 
@@ -118,11 +127,11 @@ const moduleUI = (() =>{
 
         const todos = project.getTodoList();
         todos.forEach((todo) =>{
-            displayTodo(todo);
+            displayTodo(todoList, todo);
         });
     }
 
-    const displayTodo =(todo) => {
+    const displayTodo =(todoListContainer, todo) => {
         const todoContainer = document.createElement('div');
         todoContainer.classList.add('todo');
     
@@ -136,7 +145,7 @@ const moduleUI = (() =>{
         name.textContent = todo.getTitle();
         todoContainer.appendChild(name);
     
-        const todoListContainer = document.querySelector('.todos-list');
+        //const todoListContainer = document.querySelector('.todos-list');
         todoListContainer.appendChild(todoContainer);
     }
 

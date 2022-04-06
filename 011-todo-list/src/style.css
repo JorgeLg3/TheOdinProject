@@ -11,6 +11,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative;
 }
 
 header{
@@ -60,4 +61,10 @@ main{
 
 .add-todo-button{
 
+}
+
+.add-project-button{
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
 }
