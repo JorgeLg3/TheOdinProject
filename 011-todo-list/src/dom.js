@@ -79,9 +79,44 @@ const moduleUI = (() =>{
     const _header = document.createElement('header');
     const _main = document.createElement('main');
     const _container = document.createElement('div');
-    //displayProject(initialization(), _container);
     _container.classList.add('container');
     const _footer = document.createElement('footer');
+    const _modalContainer = document.createElement('div');
+    _modalContainer.classList.add('modal-container');
+
+    const _createModal = () => {
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        const modalTitle = document.createElement('h2');
+        modalTitle.classList.add('modal-text');
+        modalTitle.textContent = 'New Todo List';
+        modal.appendChild(modalTitle);
+
+        const closeBtn = document.createElement('button');
+        closeBtn.classList.add('close-modal', 'material-icons');
+        closeBtn.textContent = 'close';
+        closeBtn.addEventListener('click', () => _modalContainer.classList.remove('show'));
+        modal.appendChild(closeBtn);
+
+        const input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.setAttribute('placeholder', 'List Name');
+        input.setAttribute('required', true);
+        modal.appendChild(input);
+
+        const confirmBtn = document.createElement('button');
+        confirmBtn.textContent = 'Create';
+        confirmBtn.addEventListener('click', () =>{
+            const title = input.value;
+            const newProject = createProject(title);
+            displayProject(newProject);
+            _modalContainer.classList.remove('show');
+        });
+        modal.appendChild(confirmBtn);
+
+        return modal;
+    }
     
     const initialDisplay = () => {
         _header.textContent = 'Todo List';
@@ -90,13 +125,16 @@ const moduleUI = (() =>{
         _main.appendChild(_container);
         _footer.textContent = 'By JorgeLg3 - code here!';
         document.body.appendChild(_footer);
+        _modalContainer.appendChild(_createModal());
+        document.body.appendChild(_modalContainer);
 
         const addProjectButton = document.createElement('button');
         addProjectButton.classList.add('material-icons','add-project-button');
         addProjectButton.textContent = 'post_add';
         addProjectButton.addEventListener('click', () => {
-            const newProject = createProject('new project');
-            displayProject(newProject);
+            //const newProject = createProject('new project');
+            //displayProject(newProject);
+            _modalContainer.classList.add('show');
         })
         _main.appendChild(addProjectButton);
     }

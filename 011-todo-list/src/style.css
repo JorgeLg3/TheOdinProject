@@ -68,3 +68,50 @@ main{
     bottom: 2rem;
     right: 2rem;
 }
+
+/* MODAL */
+
+.modal-container{
+    display: flex;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.modal{
+    background-color: #64748b;
+    width: 400px;
+    padding: 40px 0 80px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.modal-text{
+    color: white;
+    padding-bottom: 1rem;
+}
+
+.close-modal{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.show {
+    pointer-events: auto;
+    opacity: 1;
+}
