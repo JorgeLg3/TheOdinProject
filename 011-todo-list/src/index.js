@@ -34,4 +34,9 @@ function createProject(projectName){
     return newProject;
 }
 
-export {createTodo, createProject};
+function moveTodo(todoName, projectName){
+    const index = projectList.findIndex(x => x.getTitle() == projectName);
+    projectList[index].checkTodo(todoName);
+}
+
+export {createTodo, createProject, moveTodo};

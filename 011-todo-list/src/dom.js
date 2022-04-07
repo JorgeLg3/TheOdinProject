@@ -1,6 +1,6 @@
 import initialization from './models';
 import todoFactory from './models';
-import {createTodo, createProject} from './index.js';
+import {createTodo, createProject, moveTodo} from './index.js';
 /*
 function initialDOM() {
     const header = document.createElement('header');
@@ -129,13 +129,12 @@ const moduleUI = (() =>{
         form.appendChild(todoInput);
 
         const confirmBtn = document.createElement('button');
-        //confirmBtn.setAttribute('type', 'submit');
         confirmBtn.classList.add('material-icons');
         confirmBtn.textContent = 'check_circle';
         confirmBtn.addEventListener('click', () =>{
             const title = todoInput.value;
             const newTodo = createTodo(title, projectName);
-            displayTodo(todoListContainer, newTodo);
+            displayTodo(todoListContainer, newTodo, projectName);
 
             const formParent = todoListContainer.parentNode.querySelector('.form-container');
             formParent.textContent = '';
@@ -143,6 +142,17 @@ const moduleUI = (() =>{
             addTodoBtn.classList.add('show');
         });
         form.appendChild(confirmBtn);
+
+        const denyBtn = document.createElement('button');
+        denyBtn.classList.add('material-icons');
+        denyBtn.textContent = 'cancel';
+        denyBtn.addEventListener('click', () =>{
+            const formParent = todoListContainer.parentNode.querySelector('.form-container');
+            formParent.textContent = '';
+            const addTodoBtn = todoListContainer.parentNode.querySelector('.add-todo-button');
+            addTodoBtn.classList.add('show');
+        });
+        form.appendChild(denyBtn);
 
         return form;
     }
@@ -196,29 +206,63 @@ const moduleUI = (() =>{
         });
         card.appendChild(addTodoButton);
 
-        _container.appendChild(card);
+        const checkedTodoList = document.createElement('div');
+        checkedTodoList.classList.add('checked-todos-list');
+        card.appendChild(checkedTodoList);
 
+        _container.appendChild(card);
+        
         const todos = project.getTodoList();
         todos.forEach((todo) =>{
-            displayTodo(todoList, todo);
+            displayTodo(todoList, todo, project.getTitle());
+        });
+
+        const checkedTodos = project.getCheckedList();
+        console.log(checkedTodos);
+        checkedTodos.forEach((todo) => {
+            displayCheckedTodo(checkedTodoList, todo)
         });
     }
 
-    const displayTodo =(todoListContainer, todo) => {
+    const displayTodo =(todoListContainer, todo, projectName) => {
         const todoContainer = document.createElement('div');
         todoContainer.classList.add('todo');
     
         const button = document.createElement('span');
         button.classList.add('material-icons', 'check-button');
         button.textContent = 'radio_button_unchecked';
+        button.addEventListener('click', () => {
+            //button.textContent = 'radio_button_checked';
+            //todoContainer.classList.add('checked');
+            moveTodo(todo.getTitle(), projectName);
+            todoListContainer.removeChild(todoContainer);
+            const checkedList = todoListContainer.parentNode.querySelector('.checked-todos-list');
+            displayCheckedTodo(checkedList,todo);
+        });
         todoContainer.appendChild(button);
     
         const name = document.createElement('div');
         name.classList.add('todo-name');
         name.textContent = todo.getTitle();
-        todoContainer.appendChild(name);
+        todoContainer.appendChild(name);    
+        
+        todoListContainer.appendChild(todoContainer);
+    }
+
+    const displayCheckedTodo =(todoListContainer, todo) => {
+        const todoContainer = document.createElement('div');
+        todoContainer.classList.add('checked-todo');
     
-        //const todoListContainer = document.querySelector('.todos-list');
+        const button = document.createElement('span');
+        button.classList.add('material-icons', 'checked-button');
+        button.textContent = 'radio_button_checked';
+        todoContainer.appendChild(button);
+    
+        const name = document.createElement('div');
+        name.classList.add('checked.todo-name');
+        name.textContent = todo.getTitle();
+        todoContainer.appendChild(name);    
+        
         todoListContainer.appendChild(todoContainer);
     }
 
