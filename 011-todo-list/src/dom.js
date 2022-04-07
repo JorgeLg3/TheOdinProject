@@ -117,6 +117,35 @@ const moduleUI = (() =>{
 
         return modal;
     }
+
+    const _createTodoForm = (todoListContainer, projectName) => {
+        const form = document.createElement('div');
+        form.classList.add('todo-form');
+
+        const todoInput = document.createElement('input');
+        todoInput.setAttribute('type', 'text');
+        todoInput.setAttribute('placeholder', 'New todo ...');
+        todoInput.setAttribute('required', true);
+        form.appendChild(todoInput);
+
+        const confirmBtn = document.createElement('button');
+        //confirmBtn.setAttribute('type', 'submit');
+        confirmBtn.classList.add('material-icons');
+        confirmBtn.textContent = 'check_circle';
+        confirmBtn.addEventListener('click', () =>{
+            const title = todoInput.value;
+            const newTodo = createTodo(title, projectName);
+            displayTodo(todoListContainer, newTodo);
+
+            const formParent = todoListContainer.parentNode.querySelector('.form-container');
+            formParent.textContent = '';
+            const addTodoBtn = todoListContainer.parentNode.querySelector('.add-todo-button');
+            addTodoBtn.classList.add('show');
+        });
+        form.appendChild(confirmBtn);
+
+        return form;
+    }
     
     const initialDisplay = () => {
         _header.textContent = 'Todo List';
@@ -151,13 +180,19 @@ const moduleUI = (() =>{
         const todoList = document.createElement('div');
         todoList.classList.add('todos-list');
         card.appendChild(todoList);
+
+        const formContainer = document.createElement('div');
+        formContainer.classList.add('form-container');
+        card.appendChild(formContainer);
     
         const addTodoButton = document.createElement('button');
-        addTodoButton.classList.add('material-icons','add-todo-button');
+        addTodoButton.classList.add('material-icons','add-todo-button', 'show');
         addTodoButton.textContent = 'add';
         addTodoButton.addEventListener('click', () => {
-            const newTodo = createTodo('new todo', project.getTitle());
-            displayTodo(todoList, newTodo);
+            /*const newTodo = createTodo('new todo', project.getTitle());
+            displayTodo(todoList, newTodo);*/
+            addTodoButton.classList.remove('show');
+            formContainer.appendChild(_createTodoForm(todoList, project.getTitle()));
         });
         card.appendChild(addTodoButton);
 
