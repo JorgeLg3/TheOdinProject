@@ -100,12 +100,14 @@ const moduleUI = (() =>{
         modal.appendChild(closeBtn);
 
         const input = document.createElement('input');
+        input.classList.add('project-input');
         input.setAttribute('type', 'text');
         input.setAttribute('placeholder', 'List Name');
         input.setAttribute('required', true);
         modal.appendChild(input);
 
         const confirmBtn = document.createElement('button');
+        confirmBtn.classList.add('project-button');
         confirmBtn.textContent = 'Create';
         confirmBtn.addEventListener('click', () =>{
             const title = input.value;
@@ -123,13 +125,14 @@ const moduleUI = (() =>{
         form.classList.add('todo-form');
 
         const todoInput = document.createElement('input');
+        todoInput.classList.add('todo-input');
         todoInput.setAttribute('type', 'text');
         todoInput.setAttribute('placeholder', 'New todo ...');
         todoInput.setAttribute('required', true);
         form.appendChild(todoInput);
 
         const confirmBtn = document.createElement('button');
-        confirmBtn.classList.add('material-icons');
+        confirmBtn.classList.add('material-icons','todo-form-button', 'confirm');
         confirmBtn.textContent = 'check_circle';
         confirmBtn.addEventListener('click', () =>{
             const title = todoInput.value;
@@ -144,7 +147,7 @@ const moduleUI = (() =>{
         form.appendChild(confirmBtn);
 
         const denyBtn = document.createElement('button');
-        denyBtn.classList.add('material-icons');
+        denyBtn.classList.add('material-icons', 'todo-form-button', 'deny');
         denyBtn.textContent = 'cancel';
         denyBtn.addEventListener('click', () =>{
             const formParent = todoListContainer.parentNode.querySelector('.form-container');
@@ -158,10 +161,19 @@ const moduleUI = (() =>{
     }
     
     const initialDisplay = () => {
-        _header.textContent = 'Todo List';
+        const title = document.createElement('h1');
+        title.classList.add('title');
+        title.textContent = 'TODO LIST';
+        _header.appendChild(title);
+        const icon = document.createElement('span');
+        icon.classList.add('material-icons');
+        icon.textContent = 'checklist';
+        _header.appendChild(icon);
         document.body.appendChild(_header);
+
         document.body.appendChild(_main);
         _main.appendChild(_container);
+
         _footer.textContent = 'By JorgeLg3 - code here!';
         document.body.appendChild(_footer);
         _modalContainer.appendChild(_createModal());
@@ -171,8 +183,6 @@ const moduleUI = (() =>{
         addProjectButton.classList.add('material-icons','add-project-button');
         addProjectButton.textContent = 'post_add';
         addProjectButton.addEventListener('click', () => {
-            //const newProject = createProject('new project');
-            //displayProject(newProject);
             _modalContainer.classList.add('show');
         })
         _main.appendChild(addProjectButton);
@@ -194,21 +204,19 @@ const moduleUI = (() =>{
         const formContainer = document.createElement('div');
         formContainer.classList.add('form-container');
         card.appendChild(formContainer);
+
+        const checkedTodoList = document.createElement('div');
+        checkedTodoList.classList.add('checked-todos-list');
+        card.appendChild(checkedTodoList);
     
         const addTodoButton = document.createElement('button');
         addTodoButton.classList.add('material-icons','add-todo-button', 'show');
         addTodoButton.textContent = 'add';
         addTodoButton.addEventListener('click', () => {
-            /*const newTodo = createTodo('new todo', project.getTitle());
-            displayTodo(todoList, newTodo);*/
             addTodoButton.classList.remove('show');
             formContainer.appendChild(_createTodoForm(todoList, project.getTitle()));
         });
         card.appendChild(addTodoButton);
-
-        const checkedTodoList = document.createElement('div');
-        checkedTodoList.classList.add('checked-todos-list');
-        card.appendChild(checkedTodoList);
 
         _container.appendChild(card);
         
@@ -259,7 +267,7 @@ const moduleUI = (() =>{
         todoContainer.appendChild(button);
     
         const name = document.createElement('div');
-        name.classList.add('checked.todo-name');
+        name.classList.add('checked-todo-name');
         name.textContent = todo.getTitle();
         todoContainer.appendChild(name);    
         
