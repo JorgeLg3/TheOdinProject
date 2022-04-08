@@ -15,6 +15,7 @@ const projectFactory = (title) => {
     let _todoList = [];
     let _checkedList = [];
     const addTodo = todo => _todoList.push(todo);
+    const addCheckTodo = todo => _checkedList.push(todo);
     const getTodoList = () => _todoList;
     const getCheckedList = () => _checkedList;
     const checkTodo = todoName => {
@@ -29,6 +30,7 @@ const projectFactory = (title) => {
     return {
         getTitle,
         addTodo,
+        addCheckTodo,
         getTodoList,
         getCheckedList,
         checkTodo,

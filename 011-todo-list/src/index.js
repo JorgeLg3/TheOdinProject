@@ -64,9 +64,21 @@ function setStorageProjects(projects){
             };
             todosArray.push(todoInfo);
         });
+        let checkedArray = [];
+        const checkedList = project.getCheckedList();
+        checkedList.forEach((check) => {
+            const checkedInfo = {
+                'title' : check.getTitle(),
+                'description' : check.getDescription(),
+                'date' : check.getDate(),
+                'priority' : check.getPriority()
+            };
+            checkedArray.push(checkedInfo);
+        });
         let projectInfo = {
             'title' : project.getTitle(),
-            'todoList' : todosArray
+            'todoList' : todosArray,
+            'checkList' : checkedArray
         };
         projectsArray.push(projectInfo);
     });
@@ -83,6 +95,11 @@ function getStorageProjects(){
             const readTodo = todoFactory(todo.title, todo.description , todo.date, todo.priority);
             readProject.addTodo(readTodo);
         });
+        project.checkList.forEach((todo) => {
+            const readTodo = todoFactory(todo.title, todo.description , todo.date, todo.priority);
+            readProject.addCheckTodo(readTodo);
+        });
+        
         newProjectList.push(readProject);
     });
     return newProjectList;
