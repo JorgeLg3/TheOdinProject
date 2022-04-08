@@ -37,7 +37,7 @@ const projectFactory = (title) => {
     };
 }
 
-function initialization(){
+function defaultProject(){
     const todo1 = todoFactory('This is an important task');
     const todo2 = todoFactory('Another important task', 'todo2 description', 'tomorrow', 1);
     const todo3 = todoFactory('Less important task', 'todo3 description', 'tomorrow', 1);
@@ -54,7 +54,7 @@ function initialization(){
 }
 
 export {
-    initialization,
+    defaultProject,
     todoFactory,
     projectFactory
 };

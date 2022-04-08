@@ -1,42 +1,89 @@
 import './style.css';
-//import Icon from './icon.png';
-import {initialization, todoFactory, projectFactory} from './models';
+import {defaultProject, todoFactory, projectFactory} from './models';
 import moduleUI from './dom.js';
 
-
-/*const body = document.querySelector('body');
-const div = document.createElement('div');
-div.textContent = 'Hola';
-body.appendChild(div);*/
-
+//Add google icons to index.html
 const googleIcons = document.createElement('link');
 googleIcons.rel = 'stylesheet';
 googleIcons.href = 'https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined';
 document.head.appendChild(googleIcons);
 
-//initialDOM();
-
+//InitialDisplay
+//localStorage.clear();
 moduleUI.initialDisplay();
 let projectList = [];
-projectList.push(initialization());
-moduleUI.displayProject(projectList[0]);
+if(!localStorage.getItem('projectList')){
+    projectList.push(defaultProject());
+    moduleUI.displayProject(projectList[0]);
+}
+else{
+    console.log(localStorage.getItem('projectList'));
+    projectList = getStorageProjects();
+    projectList.forEach((project) => {
+        moduleUI.displayProject(project);
+    });
+}
 
+
+//Manipulate objects
 function createTodo(todo, projectName){
     const index = projectList.findIndex(x => x.getTitle() == projectName);
     const newTodo = todoFactory(todo);
     projectList[index].addTodo(newTodo);
+    setStorageProjects(projectList);
     return newTodo;
 }
 
 function createProject(projectName){
     const newProject = projectFactory(projectName);
     projectList.push(newProject);
+    setStorageProjects(projectList);
     return newProject;
 }
 
 function moveTodo(todoName, projectName){
     const index = projectList.findIndex(x => x.getTitle() == projectName);
     projectList[index].checkTodo(todoName);
+    setStorageProjects(projectList);
 }
 
 export {createTodo, createProject, moveTodo};
+
+//Storage objects
+function setStorageProjects(projects){
+    let projectsArray = [];
+    projects.forEach((project) => {
+        let todosArray = [];
+        const todoList = project.getTodoList();
+        todoList.forEach((todo) => {
+            const todoInfo = {
+                'title' : todo.getTitle(),
+                'description' : todo.getDescription(),
+                'date' : todo.getDate(),
+                'priority' : todo.getPriority()
+            };
+            todosArray.push(todoInfo);
+        });
+        let projectInfo = {
+            'title' : project.getTitle(),
+            'todoList' : todosArray
+        };
+        projectsArray.push(projectInfo);
+    });
+    localStorage.setItem('projectList', JSON.stringify(projectsArray));
+    console.log(projectsArray);
+}
+
+function getStorageProjects(){
+    let newProjectList = [];
+    const readProjectsArray = JSON.parse(localStorage.getItem('projectList'));
+    readProjectsArray.forEach((project) => {
+        const readProject = projectFactory(project.title);
+        project.todoList.forEach((todo) => {
+            const readTodo = todoFactory(todo.title, todo.description , todo.date, todo.priority);
+            readProject.addTodo(readTodo);
+        });
+        newProjectList.push(readProject);
+    });
+    return newProjectList;
+}
