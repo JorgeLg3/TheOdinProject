@@ -1,16 +1,28 @@
 import React, {Component } from 'react';
+import { Contact } from './components/Contact';
+import {Intro} from './components/Intro';
+import { Experience } from './components/Experience';
 
 class App extends Component {
   constructor(props) {
     super(props)
 
-    /*this.state = {
-      tasks: [],
-      task: { 
-        text: '',
-        id: uniqid()
-      },
-    };*/
+    this.setStateOfParent = this.setStateOfParent.bind(this);
+
+    this.state = {
+      name: "",
+      lastName: "",
+      resume: "",
+      phone: "",
+      email: "",
+      address: "",
+
+      editMode: true,
+    };
+  }
+
+  setStateOfParent = (e) => {
+    this.setState({[e.target.name]: e.target.value});
   }
 
   /*handleSubmit = event => {
@@ -36,20 +48,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1> Title </h1>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="taskInput">Enter task</label>
-          <input
-           type="text" 
-           name='data'
-           id='taskInput'
-           placeholder="Yout input here..." 
-           required
-           //value={task.text}
-           //onChange={this.handleChange}
-          />
-          <button type="submit">Submit</button>
-        </form>
+        <Intro handleToUpdate = {this.setStateOfParent}/>
+        <Contact handleToUpdate = {this.setStateOfParent}/>
+        <Experience/>
       </div>
     )
   }
