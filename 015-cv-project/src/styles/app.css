@@ -14,6 +14,13 @@
     --color10: #0f172a;
 }
 
+body{
+    background-color: var(--color3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+}
 /*EDIT VIEW */
 .editView{
     display: flex;
@@ -21,7 +28,6 @@
     align-items: center;
     gap: 1rem;
     padding: 2rem;
-    background-color: var(--color3);
     font-family: sans-serif;
 }
 
@@ -71,14 +77,14 @@ textarea{
     flex-direction: column;
 }
 
-.box-container{
+.editView .box-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 3rem;
 }
 
-.section h2{
+.editView .section h2{
     margin-bottom: 1rem;
 }
 
@@ -125,18 +131,3 @@ textarea{
 
 
 
-/* PREVIEW VIEW */
-
-.previewView{
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-}
-
-.previewView > .sidebar{
-    grid-column: 1/2;
-    grid-row: 1/4;
-}
-
-.previewView > .main{
-    grid-column: 2/3;
-}

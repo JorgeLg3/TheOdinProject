@@ -4,6 +4,7 @@ import {Intro} from './components/Intro';
 import { Experience } from './components/Experience';
 import { Education } from './components/Education';
 import './styles/app.css';
+import './styles/preview.css';
 
 class App extends Component {
   constructor(props) {

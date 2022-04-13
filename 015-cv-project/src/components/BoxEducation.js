@@ -8,7 +8,7 @@ export class BoxEducation extends Component{
             id: uniqid(),
             title: "Some title",
             trainer: "Great University of software",
-            description: "Around this course I learned so much",
+            description: "Cupidatat sunt anim incididunt nisi labore sunt nulla Lorem elit irure. Aliquip quis excepteur et nostrud enim irure nostrud officia. Et deserunt et aliquip voluptate elit cupidatat.",
             from: "2021-03-25",
             to: "2022-03-25",
         }
@@ -81,12 +81,14 @@ export class BoxEducation extends Component{
             );
         } else{
             return(
-                <div>
-                    <h3>{title}</h3>
-                    <h4>{trainer}</h4>
-                    <h5>{from}</h5>
-                    <h5>{to}</h5>
-                    <p>{description}</p>
+                <div className='education'>
+                    <div className='title-education'>{title}</div>
+                    <div className='trainer'>{trainer}</div>
+                    <div className='dates'>
+                        <div className='from'>{from}</div>
+                        <div className='to'>{to}</div>
+                    </div>
+                    <div className='description'>{description}</div>
                 </div>
             );
         }

@@ -71,16 +71,20 @@ export class Contact extends Component{
                 <div className='contactContainer'>
                     <h1>Contact</h1>
                     <ul>
-                        <li>
+                        <li className='contact-element'>
+                            <span class="material-icons">phone</span>
                             {phone}
                         </li>
-                        <li>
+                        <li className='contact-element'>
+                            <span class="material-icons">email</span>
                             {email}
                         </li>
-                        <li>
+                        <li className='contact-element'>
+                            <span class="material-icons">home</span>
                             {address}
                         </li>
-                        <li>
+                        <li className='contact-element'>
+                            <i class="fa-brands fa-linkedin"></i>
                             {linkedin}
                         </li>
                     </ul>

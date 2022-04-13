@@ -8,7 +8,7 @@ export class BoxExperience extends Component{
             id: uniqid(),
             position: "Awesome Job",
             employer: "Nice Software Company",
-            description: "In this position I develope some incredible tasks of developing",
+            description: "Cupidatat sunt anim incididunt nisi labore sunt nulla Lorem elit irure. Aliquip quis excepteur et nostrud enim irure nostrud officia. Et deserunt et aliquip voluptate elit cupidatat.",
             from: "2021-03-25",
             to: "2022-03-25",
         }
@@ -87,12 +87,14 @@ export class BoxExperience extends Component{
             );
         } else{
             return(
-                <div>
-                    <h3>{position}</h3>
-                    <h4>{employer}</h4>
-                    <h5>{from}</h5>
-                    <h5>{to}</h5>
-                    <p>{description}</p>
+                <div className='experience'>
+                    <div className='position'>{position}</div>
+                    <div className='employer'>{employer}</div>
+                    <div className='dates'>
+                        <div className='from'>{from}</div>
+                        <div className='to'>{to}</div>
+                    </div>
+                    <p className='description'>{description}</p>
                 </div>
             );
         }
