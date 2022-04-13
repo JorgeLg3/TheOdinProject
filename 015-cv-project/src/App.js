@@ -21,6 +21,7 @@ class App extends Component {
       address: "",
 
       editMode: true,
+      btnText: 'preview',
     };
   }
 
@@ -28,11 +29,17 @@ class App extends Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
-  changeVisualizationMode = () => {
+  changeVisualizationMode = (e) => {
     if(this.state.editMode){
-      this.setState({editMode: false});
+      this.setState({
+        editMode: false,
+        btnText: 'edit',
+      });
     } else{
-      this.setState({editMode: true});
+      this.setState({
+        editMode: true,
+        btnText: 'preview'
+      });
     }
     console.log(this.state.editMode);
   }
@@ -69,7 +76,7 @@ class App extends Component {
           <div className='sidebar'>
             <Contact handleToUpdate = {this.setStateOfParent} editMode ={this.state.editMode}/>
           </div>
-          <button onClick={this.changeVisualizationMode}>Toggle Edit/Preview mode</button>
+          <button onClick={this.changeVisualizationMode} className='viewBtn material-icons'>{this.state.btnText}</button>
         </div>
       );
     /*} else {

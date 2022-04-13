@@ -22,33 +22,40 @@ export class Intro extends Component{
         if (this.props.editMode){
             return (
             
-                <div className='intro'>
-                    Awesome Intro
+                <div className='section'>
+                    <h2>Introduction</h2>
                     <form>
-                        <label htmlFor="nameInput">Name</label>
-                        <input
-                            type="text"
-                            id="nameInput"
-                            onChange={this.handleChange}
-                            name="name"
-                            value={name}
-                        />
-                        <label htmlFor="lastNameInput">Last Name</label>
-                        <input
-                            type="text"
-                            id="lastNameInput"
-                            onChange={this.handleChange}
-                            name="lastName"
-                            value={lastName}
-                        />
-                        <label htmlFor="titleInput">Title</label>
-                        <input
-                            type="text"
-                            id="titleInput"
-                            onChange={this.handleChange}
-                            name="title"
-                            value={title}
-                        />
+                        <div className='field'>
+                            <label htmlFor="nameInput">Name</label>
+                            <input
+                                type="text"
+                                id="nameInput"
+                                onChange={this.handleChange}
+                                name="name"
+                                value={name}
+                            />
+                        </div>
+                        <div className='field'>
+                            <label htmlFor="lastNameInput">Last Name</label>
+                            <input
+                                type="text"
+                                id="lastNameInput"
+                                onChange={this.handleChange}
+                                name="lastName"
+                                value={lastName}
+                            />
+                        </div>
+                        <div className='field fullLine'>
+                            <label htmlFor="titleInput">Title</label>
+                            <input
+                                type="text"
+                                id="titleInput"
+                                onChange={this.handleChange}
+                                name="title"
+                                value={title}
+                            />
+                        </div>
+                        <div className='field fullLine'>
                         <label htmlFor='resumeInput'>Resume</label>
                         <textarea
                             rows='6'
@@ -58,6 +65,7 @@ export class Intro extends Component{
                             onChange={this.handleChange}
                             value={resume}
                         ></textarea>
+                        </div>
                     </form>
                 </div>
             );

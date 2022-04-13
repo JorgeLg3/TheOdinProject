@@ -33,15 +33,15 @@ export class Experience extends Component{
     render(){
         const renderAddButton = () => {
             if (this.state.editMode){
-                return <button onClick={this.addExperience} className='addExperience'>Add</button>;
+                return <button onClick={this.addExperience} className='addBtn'>Add</button>;
             }
         }
 
         return (
-            <div className='experience'>
+            <div className='section'>
                 <h2>Experience information</h2>
                 
-                <div>
+                <div className='box-container'>
                     {[...Array(this.state.numChild)].map((x, i) =>
                         <BoxExperience editMode={this.state.editMode} />
                     )}

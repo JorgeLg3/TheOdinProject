@@ -19,41 +19,50 @@ export class Contact extends Component{
         const {phone, email, address, linkedin} =this.state;
         if (this.props.editMode){
             return (
-                <div className='contact'>
-                    Awesome contact information
+                <div className='section'>
+                    <h2>Contact Information</h2>
                     <form>
-                        <label htmlFor="phoneInput">Phone number</label>
-                        <input
-                            type="tel"
-                            id="phoneInput"
-                            name='phone'
-                            onChange={this.handleChange}
-                            value={phone}
-                        />
-                        <label htmlFor="emailInput">Email</label>
-                        <input
-                            type="email"
-                            id="emailInput"
-                            name='email'
-                            onChange={this.handleChange}
-                            value={email}
-                        />
-                        <label htmlFor="addressInput">Address</label>
-                        <input
-                            type="text"
-                            id="addressInput"
-                            name='email'
-                            onChange={this.handleChange}
-                            value={address}
-                        />
-                        <label htmlFor="linkedinInput">Address</label>
-                        <input
-                            type="url"
-                            id="linkedinInput"
-                            name='linkedin'
-                            onChange={this.handleChange}
-                            value={linkedin}
-                        />
+                        <div className='field'>
+                            <label htmlFor="phoneInput">Phone number</label>
+                            <input
+                                type="tel"
+                                id="phoneInput"
+                                name='phone'
+                                onChange={this.handleChange}
+                                value={phone}
+                            />
+                        </div>
+                        <div className='field'>
+                            <label htmlFor="emailInput">Email</label>
+                            <input
+                                type="email"
+                                id="emailInput"
+                                name='email'
+                                onChange={this.handleChange}
+                                value={email}
+                            />
+                        </div>
+                        <div className='field'>
+                            <label htmlFor="addressInput">Address</label>
+                            <input
+                                type="text"
+                                id="addressInput"
+                                name='email'
+                                onChange={this.handleChange}
+                                value={address}
+                            />
+                        </div>
+                        <div className='field'>
+                            <label htmlFor="linkedinInput">Address</label>
+                            <input
+                                type="url"
+                                id="linkedinInput"
+                                name='linkedin'
+                                onChange={this.handleChange}
+                                value={linkedin}
+                            />
+                        </div>
+                        
                     </form>
                 </div>
             );

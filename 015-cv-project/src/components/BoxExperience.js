@@ -22,51 +22,64 @@ export class BoxExperience extends Component{
         const {position, employer, description, from, to} = this.state;
         if(this.props.editMode){
             return (
-                <div className='experience'>
-                    <h1>Sample Experience</h1>
-                    
+                <div className='box'>                    
                     <form>
-                        <label htmlFor="positionInput">Position title</label>
-                        <input
-                            type="text"
-                            id="positionInput"
-                            name='position'
-                            onChange={this.handleChange}
-                            value={position}
-                        />
-                        <label htmlFor="employerInput">Company name</label>
-                        <input
-                            type="text"
-                            id="employerInput"
-                            name='employer'
-                            onChange={this.handleChange}
-                            value={employer}
-                        />
-                        <label htmlFor="fromInput">From: </label>
-                        <input
-                            type="date"
-                            id="fromInput"
-                            name='from'
-                            onChange={this.handleChange}
-                            value={from}
-                        />
-                        <label htmlFor="toInput">From: </label>
-                        <input
-                            type="date"
-                            id="toInput"
-                            name='to'
-                            onChange={this.handleChange}
-                            value={to}
-                        />
-                        <label htmlFor='descriptionInput'>Job description</label>
-                        <textarea
-                            rows='6'
-                            columns='20'
-                            id='descriptionInput'
-                            name='description'
-                            onChange={this.handleChange}
-                            value={description}
-                        ></textarea>
+                        <div className='field fullLine'>
+                            <label htmlFor="positionInput">Position title</label>
+                            <input
+                                type="text"
+                                id="positionInput"
+                                name='position'
+                                onChange={this.handleChange}
+                                value={position}
+                            />
+                        </div>
+                        <div className='field fullLine'>
+                            <label htmlFor="employerInput">Company name</label>
+                            <input
+                                type="text"
+                                id="employerInput"
+                                name='employer'
+                                onChange={this.handleChange}
+                                value={employer}
+                            />
+                        </div>
+                        <div className='field'>
+                            <label htmlFor="fromInput">From: </label>
+                            <input
+                                type="date"
+                                id="fromInput"
+                                name='from'
+                                onChange={this.handleChange}
+                                value={from}
+                            />
+                        </div>
+                        <div className='field'>
+                            <label htmlFor="toInput">From: </label>
+                            <input
+                                type="date"
+                                id="toInput"
+                                name='to'
+                                onChange={this.handleChange}
+                                value={to}
+                            />
+                        </div>
+                        <div className='field fullLine'>
+                            <label htmlFor='descriptionInput'>Job description</label>
+                            <textarea
+                                rows='6'
+                                columns='20'
+                                id='descriptionInput'
+                                name='description'
+                                onChange={this.handleChange}
+                                value={description}
+                            ></textarea>
+                        </div>
+                        
+                        
+                        
+                        
+                        
 
                     </form>
                     

@@ -26,15 +26,15 @@ export class Education extends Component{
     render(){
         const renderAddButton = () => {
             if (this.state.editMode){
-                return <button onClick={this.addEducation} className='addEducation'>Add</button>;
+                return <button onClick={this.addEducation} className='addBtn'>Add</button>;
             }
         }
 
         return (
-            <div className='education'>
+            <div className='section'>
                 <h2>Education information</h2>
                 
-                <div>
+                <div className='box-container'>
                     {[...Array(this.state.numChild)].map((x, i) =>
                         <BoxEducation editMode={this.state.editMode} />
                     )}
