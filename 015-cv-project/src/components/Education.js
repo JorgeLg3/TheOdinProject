@@ -1,12 +1,11 @@
 import React, {Component } from 'react';
-import {BoxExperience} from './BoxExperience';
+import {BoxEducation} from './BoxEducation';
 import uniqid from "uniqid";
 
-export class Experience extends Component{
+export class Education extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            boxes: [],
             editMode: this.props.editMode,
             numChild: 1,
         }
@@ -18,32 +17,26 @@ export class Experience extends Component{
         }
     }
 
-    addExperience = () => {
+    addEducation = () => {
         this.setState({
-            //boxes: this.state.boxes.concat(<BoxExperience editMode={this.state.editMode}/>),
             numChild: this.state.numChild + 1,
         })
-        /* 
-            <div>
-                    {this.state.boxes.map(box => <div>{box}</div>)}
-                </div>
-        */
     }
 
     render(){
         const renderAddButton = () => {
             if (this.state.editMode){
-                return <button onClick={this.addExperience} className='addExperience'>Add</button>;
+                return <button onClick={this.addEducation} className='addEducation'>Add</button>;
             }
         }
 
         return (
-            <div className='experience'>
-                <h2>Experience information</h2>
+            <div className='education'>
+                <h2>Education information</h2>
                 
                 <div>
                     {[...Array(this.state.numChild)].map((x, i) =>
-                        <BoxExperience editMode={this.state.editMode} />
+                        <BoxEducation editMode={this.state.editMode} />
                     )}
                 </div>
                 {renderAddButton()}
