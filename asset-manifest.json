@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TheOdinProject/015-cv-project/static/css/main.db96b238.css",
+    "main.js": "/TheOdinProject/015-cv-project/static/js/main.b93e0e66.js",
+    "index.html": "/TheOdinProject/015-cv-project/index.html",
+    "main.db96b238.css.map": "/TheOdinProject/015-cv-project/static/css/main.db96b238.css.map",
+    "main.b93e0e66.js.map": "/TheOdinProject/015-cv-project/static/js/main.b93e0e66.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db96b238.css",
+    "static/js/main.b93e0e66.js"
+  ]
+}
