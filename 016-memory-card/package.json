@@ -1,6 +1,7 @@
 {
   "name": "016-memory-card",
   "version": "0.1.0",
+  "homepage": "https://JorgeLg3.github.io/TheOdinProject/016-memory-card/build",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",

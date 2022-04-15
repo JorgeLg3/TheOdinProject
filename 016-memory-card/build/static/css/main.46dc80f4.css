@@ -1,2 +1,0 @@
-@font-face{font-family:pokemonRedFire;src:url(/static/media/pokemon-firered-leafgreen-font-recreation.1effa967577d787a901a.ttf) format("truetype")}*{margin:0;padding:0}.App{align-items:center;display:flex;flex-direction:column}.screen{align-content:center;background-color:gray;display:grid;font-family:pokemonRedFire;grid-template-columns:1fr 1fr;height:67.5vw;justify-items:center;width:90vw}.imageContainer{height:20vw;width:20vw}.imageContainer img{height:100%;width:100%}
-/*# sourceMappingURL=main.46dc80f4.css.map*/
