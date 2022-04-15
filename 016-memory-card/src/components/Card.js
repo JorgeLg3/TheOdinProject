@@ -1,11 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import pikachu from './example.png'
+import pikachu from '../assets/example.png';
 
 export function Card(props) {
     
     const [pokemon, setPokemon] = useState(pikachu);
     const [name, setName] = useState('pikachu');
     const [id, setID] = useState(25);
+
+    function getShinyChance(rate){
+        var randomNumber = Math.random() * rate;
+        if(randomNumber <= 1){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     async function getPokemon(n){
         try{
@@ -24,7 +33,12 @@ export function Card(props) {
         //setPokemon(pokemonData.sprites.versions.generation-iii.emerald.front_default);
         //setPokemon(pokemonData.sprites.front_default);
         let data = await getPokemon(props.pokemonID);
-        setPokemon(data.sprites.front_default);
+        if(getShinyChance(props.shinyRate)){
+            setPokemon(data.sprites.front_shiny);
+            console.log('shiny');
+        } else{
+            setPokemon(data.sprites.front_default);
+        }
         setName(data.name)
         setID(data.id)
     }
