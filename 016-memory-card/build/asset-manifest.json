@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/TheOdinProject/016-memory-card/build/static/js/main.d929e81a.js",
+    "index.html": "/TheOdinProject/016-memory-card/build/index.html",
+    "main.d929e81a.js.map": "/TheOdinProject/016-memory-card/build/static/js/main.d929e81a.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.d929e81a.js"
+  ]
+}
