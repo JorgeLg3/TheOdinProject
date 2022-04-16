@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/TheOdinProject/016-memory-card/build/static/css/main.a83cab2f.css",
-    "main.js": "/TheOdinProject/016-memory-card/build/static/js/main.d313050a.js",
+    "main.css": "/TheOdinProject/016-memory-card/build/static/css/main.c0e0fd79.css",
+    "main.js": "/TheOdinProject/016-memory-card/build/static/js/main.c9ae7868.js",
+    "static/media/pokemon.png": "/TheOdinProject/016-memory-card/build/static/media/pokemon.16d0ce56c0dd53b0a201.png",
     "static/media/pokemon-firered-leafgreen-font-recreation.ttf": "/TheOdinProject/016-memory-card/build/static/media/pokemon-firered-leafgreen-font-recreation.1effa967577d787a901a.ttf",
     "index.html": "/TheOdinProject/016-memory-card/build/index.html",
-    "main.a83cab2f.css.map": "/TheOdinProject/016-memory-card/build/static/css/main.a83cab2f.css.map",
-    "main.d313050a.js.map": "/TheOdinProject/016-memory-card/build/static/js/main.d313050a.js.map"
+    "main.c0e0fd79.css.map": "/TheOdinProject/016-memory-card/build/static/css/main.c0e0fd79.css.map",
+    "main.c9ae7868.js.map": "/TheOdinProject/016-memory-card/build/static/js/main.c9ae7868.js.map"
   },
   "entrypoints": [
-    "static/css/main.a83cab2f.css",
-    "static/js/main.d313050a.js"
+    "static/css/main.c0e0fd79.css",
+    "static/js/main.c9ae7868.js"
   ]
 }

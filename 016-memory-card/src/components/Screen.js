@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { Card } from './Card';
+import { TextBox } from './TextBox';
+import { Score } from './Score';
+import { Pokedex } from './Pokedex';
+
 
 export function Screen() {
     //range of the pokedex
@@ -88,10 +92,15 @@ export function Screen() {
   
     return (
       <div className="screen">
-        <Card className = "card" pokemonID={pokemon1} onClickHandle={playRound} shinyRate={shinyRate}/>
-        <Card className = "card"pokemonID={pokemon2} onClickHandle={playRound} shinyRate={shinyRate}/>
-        <div> Score {score}/{last-first+1}</div>
-        <div> Best score: {bestScore}</div>
+        <div className='top'>
+            <Score score={score} bestScore={bestScore} range={last-first+1}/>
+            <Pokedex/>
+        </div>
+        <div className='pokemons'>
+            <Card pokemonID={pokemon1} onClickHandle={playRound} shinyRate={shinyRate}/>
+            <Card pokemonID={pokemon2} onClickHandle={playRound} shinyRate={shinyRate}/>
+        </div>
+        <TextBox/>
       </div>
     );
   }

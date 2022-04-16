@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import pikachu from '../assets/example.png';
+import battlefield from '../assets/battlefield.png';
 
 export function Card(props) {
     
@@ -48,13 +49,18 @@ export function Card(props) {
     },[props.pokemonID]);
 
     return (
-        <div>
+        <div className='card'>
+            
+            <div className='pokemon-card'>
+                <div>{name.toUpperCase()}</div>
+                <div>id: {id}</div>
+            </div>
             <div className='imageContainer'>
-                <img src={pokemon} alt={id} onClick={props.onClickHandle}/>
+                <img className='pokemon' src={pokemon} alt={id} onClick={props.onClickHandle}/>
             </div>
-            <div>
-                {name.toUpperCase()}
-            </div>
+            <img className='battlefield' src={battlefield} alt={'battlefield'} />
+            
+            
         </div>
     );
 }

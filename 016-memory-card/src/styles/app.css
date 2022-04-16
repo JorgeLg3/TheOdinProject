@@ -13,24 +13,164 @@
     align-items: center;
 }
 
-.screen{
-     font-family: 'pokemonRedFire';
-     display: grid;
-     grid-template-columns: 1fr 1fr;
-     width: 90vw;
-     height: calc(3/4*90vw);
-     background-color: gray;
-     align-content: center;
-     justify-items: center;
- }
- 
-.imageContainer{
-    width: 20vw;
-    height: 20vw;
+.title{
+    font-family: 'pokemonRedFire';
+    position:relative;
+    padding: 20px 0;
 }
 
-.imageContainer img{
+.titleImg{
+    width: min(80vw, calc(4/3*55vh));
+}
+
+.titleTxt{
+    position: absolute;
+    font-size: 1rem;
+    bottom: 10px;
+    right: 0px;
+    font-size: calc(0.06*min(calc(3/4*90vw), 60vh));
+    font-weight: 600;
+}
+
+.screen{
+     font-family: 'pokemonRedFire';
+     display: flex;
+     flex-direction: column;
+     width: min(90vw, calc(4/3*60vh));
+     height: min(calc(3/4*90vw), 60vh);
+     background-color: rgb(224, 248, 200);
+     align-content: center;
+     justify-items: center;
+     position: relative;
+     border-radius: 3px;
+     border: 1px solid black;
+     box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
+     background-image: linear-gradient(180deg, rgba(160, 216, 240), rgba(0, 0, 0, 0) 20%);
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+}
+
+.scoreContainer{
+    position:relative;
+}
+
+.scoreImg{
+    position: absolute;
+    width: calc(0.3*min(90vw, calc(4/3*60vh)));
+}
+
+.score{
+    padding: 6px 12px;
+    margin-left: calc(0.1*min(90vw, calc(4/3*60vh)));;
+    font-weight: 700;
+    font-size: calc(0.035*min(calc(3/4*90vw), 60vh));
+}
+
+.bestScore{
+    font-size: calc(0.03*min(calc(3/4*90vw), 60vh));
+    text-align: left;
+    margin: 10px;
+}
+
+.pokedex-selector{
+    display: flex;
+    gap: 10px;
+    padding: 5px 10px;
+}
+
+.pokedexImg{
+    width: 30px;
+    height: 30px;
+}
+
+.pokemons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15px;
+    position: relative;
+}
+
+.pokemon-card{
+    background-color: rgb(248, 248, 216);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 12px 6px 12px 6px;
+    border: 4px rgb(32, 56, 0) solid;
+    height: calc(0.12*min(calc(3/4*90vw), 60vh));
+    width: calc(0.4*min(90vw, calc(4/3*60vh)));
+    box-sizing: border-box;
+    padding: 0.2rem 0.8rem;
+    font-size: calc(0.035*min(calc(3/4*90vw), 60vh));
+}
+
+.imageContainer{
+    width: calc(0.3*min(90vw, calc(4/3*60vh)));
+    height: calc(0.3*min(90vw, calc(4/3*60vh)));
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon{
     width: 100%;
     height: 100%;
+    z-index: 3;
+}
+
+.pokemon:hover{
+    width: 90%;
+    height: 90%;
+}
+
+.battlefield{
+    position: absolute;
+    bottom: -14px;
+    width: calc(0.5*min(90vw, calc(4/3*60vh)));
+    z-index: 2;
+}
+
+.bottom{
+    height: calc(0.25*min(calc(3/4*90vw), 60vh));
+    width: 100%;
+    grid-row: 3/4;
+    grid-column: 1/3;
+    background-color: rgb(72, 64, 80);
+    align-self: end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.textbox{
+    
+    background-color: rgb(104, 160, 160);
+    width: 100%;
+    height: 100%;
+    /*position:absolute;
+    bottom: 0.5rem;*/
+    border-radius: 12px;
+    border: rgb(208, 72, 56) solid;
+    border-width: 3px 8px;
+    box-sizing: border-box;
+    color: white;
+}
+
+.textbox p{
+    padding: 0.5rem 2rem;
+    font-size: calc(0.06*min(calc(3/4*90vw), 60vh));
 }
 

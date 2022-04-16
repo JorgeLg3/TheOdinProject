@@ -1,13 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import {Screen} from './components/Screen';
 import './styles/app.css';
+import titleimg from './assets/pokemon.png';
 
 function App() {
   
 
   return (
     <div className="App">
-      <h1>Gotta Catch 'Em All</h1>
+      <div className='title'>
+        <img className='titleImg' src={titleimg} alt={'title'}/>
+        <div className='titleTxt'>Memory Card Game!</div>
+      </div>
       <Screen />
     </div>
   );
