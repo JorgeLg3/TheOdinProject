@@ -43,18 +43,24 @@ export function Screen() {
       }
     }
 
+    //check Win condition
     useEffect(() => {
       if(score === (last-first+1)){
         console.log('You Win!');
         initializeGame();
-      } else if(score !== 0){
-        randomDisplay();
-      } else {
-        defaultDisplay();
-      }
-    }, [score])
-    
+      } 
+    }, [score]);
+
     //update displays
+    useEffect(() => {
+      if(score === 0){
+        defaultDisplay();
+      } else {
+        randomDisplay();
+      }
+    }, [freePokemons]);
+        
+    //displays functions
     function randomDisplay(){
       //random de posiiton of the free/capture pokemon
       const random_boolean = Math.random() < 0.5;
@@ -73,13 +79,12 @@ export function Screen() {
     }
   
     function initializeGame(){
-        localStorage.setItem('localScore', JSON.stringify(bestScore));
         if(score>bestScore){
         setBestScore(score);
       }
-      setScore(0);
       setFreePokemons(range(first,last));
       setCapturedPokemons([]);
+      setScore(0);
     }
 
     //on load component load local storage
@@ -89,12 +94,30 @@ export function Screen() {
             setBestScore(Number(localScore));
         }
     }, []);
+
+    //on update maxScore store it
+    useEffect(() => {
+      localStorage.setItem('localScore', JSON.stringify(bestScore));
+    }, [bestScore]);
+
+    //update range
+    function handleFirst(newValue){
+      setFirst(newValue);
+    }
+
+    function handleLast(newValue){
+      setLast(newValue);
+    }
+
+    useEffect(()=> {
+      initializeGame();
+    },[last]);
   
     return (
       <div className="screen">
         <div className='top'>
             <Score score={score} bestScore={bestScore} range={last-first+1}/>
-            <Pokedex/>
+            <Pokedex handleLast={handleLast} handleFirst={handleFirst}/>
         </div>
         <div className='pokemons'>
             <Card pokemonID={pokemon1} onClickHandle={playRound} shinyRate={shinyRate}/>

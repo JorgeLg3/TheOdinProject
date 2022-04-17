@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import pikachu from '../assets/example.png';
 import battlefield from '../assets/battlefield.png';
+import hpbar from '../assets/hqdefault.jpg';
 
 export function Card(props) {
     
@@ -54,6 +55,7 @@ export function Card(props) {
             <div className='pokemon-card'>
                 <div>{name.toUpperCase()}</div>
                 <div>id: {id}</div>
+                <img className='hpbar' src={hpbar} alt={'hpbar'}/>
             </div>
             <div className='imageContainer'>
                 <img className='pokemon' src={pokemon} alt={id} onClick={props.onClickHandle}/>
