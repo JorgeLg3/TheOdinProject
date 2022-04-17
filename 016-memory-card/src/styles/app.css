@@ -8,11 +8,17 @@
     padding: 0;
 }
 
+:root{
+    --screenWidth: min(90vw, calc(4/3*60vh));
+    --screenHeight: min(calc(3/4*90vw), 60vh);
+}
+
 /* Main */
 .App{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
 }
 
 .title{
@@ -30,8 +36,9 @@
     font-size: 1rem;
     bottom: 10px;
     right: 0px;
-    font-size: calc(0.06*min(calc(3/4*90vw), 60vh));
+    font-size: calc(0.06*var(--screenHeight));
     font-weight: 600;
+    text-shadow: 2px 2px rgb(160, 162, 172);
 }
 
 .screen{
@@ -39,8 +46,8 @@
     font-family: 'pokemonRedFire';
     display: flex;
     flex-direction: column;
-    width: min(90vw, calc(4/3*60vh));
-    height: min(calc(3/4*90vw), 60vh);
+    width: var(--screenWidth);
+    height: var(--screenHeight);
     background-color: rgb(224, 248, 200);
     align-content: center;
     justify-items: center;
@@ -56,6 +63,15 @@
     justify-content: space-between;
 }
 
+.footer{
+    margin-top: 30px;
+    font-family: 'pokemonRedFire';
+}
+
+.footer a{
+    text-decoration: none;
+}
+
 /* Score */
 
 .scoreContainer{
@@ -64,20 +80,22 @@
 
 .scoreImg{
     position: absolute;
-    width: calc(0.3*min(90vw, calc(4/3*60vh)));
+    width: calc(0.3*var(--screenWidth));
 }
 
 .score{
     padding: 6px 12px;
-    margin-left: calc(0.1*min(90vw, calc(4/3*60vh)));
+    margin-left: calc(0.1*var(--screenWidth));
     font-weight: 700;
-    font-size: calc(0.035*min(calc(3/4*90vw), 60vh));
+    font-size: calc(0.035*var(--screenHeight));
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .bestScore{
-    font-size: calc(0.03*min(calc(3/4*90vw), 60vh));
+    font-size: calc(0.03*var(--screenHeight));
     text-align: left;
     margin: 10px;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 /*pokedex*/
@@ -86,18 +104,18 @@
     display: flex;
     gap: 10px;
     background-color: white;
-    height: calc(0.05*min(90vw, calc(4/3*60vh)));
+    height: calc(0.05*var(--screenWidth));
     margin: 4px 8px;
     border: 3px solid black;
-    border-radius: calc(0.025*min(90vw, calc(4/3*60vh)));
-    width: calc(0.3*min(90vw, calc(4/3*60vh)));
+    border-radius: calc(0.025*var(--screenWidth));
+    width: calc(0.3*var(--screenWidth));
     justify-content: space-between;
     position: relative;
 }
 
 .pokedexImg{
-    width: calc(0.04*min(90vw, calc(4/3*60vh)));
-    height: calc(0.04*min(90vw, calc(4/3*60vh)));
+    width: calc(0.04*var(--screenWidth));
+    height: calc(0.04*var(--screenWidth));
     align-self: center;
     margin-left: 10px;
 }
@@ -113,7 +131,8 @@ button{
     cursor: pointer;
     align-self: center;
     margin-right: 10px;
-    font-size: calc(0.028*min(90vw, calc(4/3*60vh)));
+    font-size: calc(0.028*var(--screenWidth));
+    text-shadow: 2px 2px rgb(216, 208, 176);
 }
   
 .dropbtn:hover, .dropbtn:focus {
@@ -126,12 +145,20 @@ button{
     background: none;
     background-color: white;
     z-index: 1;
-    width: calc(0.3*min(90vw, calc(4/3*60vh)));
+    width: calc(0.3*var(--screenWidth));
     border: 3px solid black;
     border-radius: 15px;
     top: -3px;
     left: -3px;
 }
+
+.dropdown-content .pokedex-input:first-child{
+    border-radius: 15px 15px 0 0;
+}
+
+.dropdown-content .pokedex-input:last-child{
+    border-radius: 0 0 15px 15px;
+ }
 
 .pokedex-input {
     color: black;
@@ -142,7 +169,8 @@ button{
     display: block;
     cursor: pointer;
     width:inherit;
-    font-size: calc(0.03*min(90vw, calc(4/3*60vh)));
+    font-size: calc(0.03*var(--screenWidth));
+    text-shadow: 2px 2px rgb(216, 208, 176);
 }
 
 .pokedex-input:hover {background-color: rgb(230, 221, 221)}
@@ -172,24 +200,25 @@ button{
     justify-content: space-between;
     border-radius: 14px 8px 14px 8px;
     border: 4px rgb(32, 56, 0) solid;
-    height: calc(0.12*min(calc(3/4*90vw), 60vh));
-    width: calc(0.4*min(90vw, calc(4/3*60vh)));
+    height: calc(0.12*var(--screenHeight));
+    width: calc(0.4*var(--screenWidth));
     box-sizing: border-box;
     padding: 0.2rem 0.8rem;
-    font-size: calc(0.035*min(calc(3/4*90vw), 60vh));
+    font-size: calc(0.035*var(--screenHeight));
     position: relative;
+    text-shadow: 2px 2px rgb(216, 208, 176);
 }
 
 .hpbar{
     position: absolute;
     bottom: 6px;
     right: 10px;
-    width: calc(0.25*min(90vw, calc(4/3*60vh)));
+    width: calc(0.25*var(--screenWidth));
 }
 
 .imageContainer{
-    width: calc(0.3*min(90vw, calc(4/3*60vh)));
-    height: calc(0.3*min(90vw, calc(4/3*60vh)));
+    width: calc(0.3*var(--screenWidth));
+    height: calc(0.3*var(--screenWidth));
     cursor: url('../assets/pokeball.png'), pointer;
     display: flex;
     justify-content: center;
@@ -210,14 +239,14 @@ button{
 .battlefield{
     position: absolute;
     bottom: -14px;
-    width: calc(0.5*min(90vw, calc(4/3*60vh)));
+    width: calc(0.5*var(--screenWidth));
     z-index: 2;
 }
 
 /* textbox*/
 
 .bottom{
-    height: calc(0.25*min(calc(3/4*90vw), 60vh));
+    height: calc(0.25*var(--screenHeight));
     width: 100%;
     grid-row: 3/4;
     grid-column: 1/3;
@@ -235,8 +264,6 @@ button{
     background-color: rgb(104, 160, 160);
     width: 100%;
     height: 100%;
-    /*position:absolute;
-    bottom: 0.5rem;*/
     border-radius: 14px;
     border: rgb(208, 72, 56) solid;
     border-width: 3px 8px;
@@ -246,6 +273,7 @@ button{
 
 .textbox p{
     padding: 0.5rem 2rem;
-    font-size: calc(0.06*min(calc(3/4*90vw), 60vh));
+    font-size: calc(0.06*var(--screenHeight));
+    text-shadow: 2px 2px rgb(64, 72, 120);
 }
 

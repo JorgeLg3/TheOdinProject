@@ -24,7 +24,6 @@ export function Card(props) {
                 mode: 'cors'
             });
             let catData = await response.json();
-            //console.log(catData);
             return catData;
         } catch (error){
             console.log(error);
@@ -32,8 +31,6 @@ export function Card(props) {
     }
 
     async function storePokemon(){
-        //setPokemon(pokemonData.sprites.versions.generation-iii.emerald.front_default);
-        //setPokemon(pokemonData.sprites.front_default);
         let data = await getPokemon(props.pokemonID);
         if(getShinyChance(props.shinyRate)){
             setPokemon(data.sprites.front_shiny);

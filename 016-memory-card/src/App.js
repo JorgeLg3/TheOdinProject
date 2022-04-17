@@ -13,6 +13,7 @@ function App() {
         <div className='titleTxt'>Memory Card Game!</div>
       </div>
       <Screen />
+      <div className='footer'>By JorgeLg3 - code <a href="https://github.com/JorgeLg3/TheOdinProject/tree/main/016-memory-card">here!</a></div>
     </div>
   );
 }

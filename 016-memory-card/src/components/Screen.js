@@ -124,6 +124,7 @@ export function Screen() {
             <Card pokemonID={pokemon2} onClickHandle={playRound} shinyRate={shinyRate}/>
         </div>
         <TextBox/>
+        
       </div>
     );
   }
