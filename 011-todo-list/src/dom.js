@@ -1,4 +1,4 @@
-import {createTodo, createProject, moveTodo} from './index.js';
+import {createTodo, createProject, removeProject, moveTodo} from './index.js';
 
 const moduleUI = (() =>{
 
@@ -143,6 +143,15 @@ const moduleUI = (() =>{
             formContainer.appendChild(_createTodoForm(todoList, project.getTitle()));
         });
         card.appendChild(addTodoButton);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('material-icons', 'delete-button');
+        deleteButton.textContent = 'close';
+        deleteButton.addEventListener('click', ()=> {
+            card.remove();
+            removeProject(project.getTitle());
+        })
+        card.appendChild(deleteButton);
 
         _container.appendChild(card);
         

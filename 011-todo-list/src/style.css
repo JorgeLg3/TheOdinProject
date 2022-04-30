@@ -113,6 +113,14 @@ main{
     padding: 1rem;
 }
 
+.delete-button{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    border: none;
+    background: none;
+}
+
 /* CHECKED TODO LIST */
 
 .checked-todo{

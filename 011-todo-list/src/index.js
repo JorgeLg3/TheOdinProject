@@ -41,13 +41,19 @@ function createProject(projectName){
     return newProject;
 }
 
+function removeProject(projectName){
+    const index = projectList.findIndex(x => x.getTitle() == projectName);
+    delete projectList[index];
+    setStorageProjects(projectList);
+}
+
 function moveTodo(todoName, projectName){
     const index = projectList.findIndex(x => x.getTitle() == projectName);
     projectList[index].checkTodo(todoName);
     setStorageProjects(projectList);
 }
 
-export {createTodo, createProject, moveTodo};
+export {createTodo, createProject, removeProject, moveTodo};
 
 //Storage objects
 function setStorageProjects(projects){
