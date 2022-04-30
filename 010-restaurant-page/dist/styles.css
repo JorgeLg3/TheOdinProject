@@ -6,7 +6,7 @@
     --color3: #aaaaaa;
     --color4: #000000e8;
     --color5: #0000005e;
-    --color6: #00000098;
+    --color6: #000000b4;
     --color7: #796fff;
 }
 
@@ -54,6 +54,7 @@ nav{
     position: sticky;
     top:0;
     box-shadow: 0 5px 5px var(--color5);
+    z-index: 1;
 }
 
 nav ul{
@@ -180,9 +181,16 @@ footer a{
     border-radius: 10px;
     max-width: 60rem;
     display: flex;
+    box-shadow: 0 5px 5px var(--color5);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-info{
+    display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 5px 5px var(--color5);
+    justify-content: center;
 }
 
 .contact-title{
@@ -196,12 +204,17 @@ footer a{
     color: var(--color2);
     font-weight: 300;
     padding: 1rem 3rem;
+    font-size: 1rem;
 }
 
 .map{
-    width: 200px;
-    height: 150px;
+    width: 400px;
+    height: 300px;
     margin: 2rem;
     border-radius: 5px;
     background-color: aqua;
+}
+
+.map iframe{
+    border-radius: 5px;
 }
