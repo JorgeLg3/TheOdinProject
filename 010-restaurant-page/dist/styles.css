@@ -133,15 +133,26 @@ footer a{
 /* MENU */
 
 .menu-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-auto-rows: minmax(250px, 1fr);
-    gap: 2rem;
+    
     padding: 2rem 3rem;
     background-color: var(--color6);
     border-radius: 10px;
     width: min(80vw, 80rem);
     box-shadow: 0 5px 5px var(--color5);
+}
+
+.menu-title{
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--color2);
+    border-bottom: solid 2px white;
+}
+
+.menu-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-auto-rows: minmax(250px, 1fr);
+    gap: 2rem;
 }
 
 .card{

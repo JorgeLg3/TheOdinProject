@@ -13,6 +13,14 @@ function createMenu(ramens){
     const menu = document.createElement('div');
     menu.classList.add('menu-container');
 
+    const title = document.createElement('div');
+    title.classList.add('menu-title');
+    title.textContent = 'Rammens';
+    menu.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.classList.add('menu-grid');
+
     ramens.forEach((ramen) => {
         const card = document.createElement('div');
         card.classList.add('card');
@@ -32,8 +40,10 @@ function createMenu(ramens){
         price.textContent = ramen.price + '$';
         card.appendChild(price);
 
-        menu.appendChild(card);
+        grid.appendChild(card);
     })
+
+    menu.appendChild(grid);
 
     return menu;
 }
