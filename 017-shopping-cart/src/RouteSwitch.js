@@ -4,7 +4,7 @@ import Shop from "./components/Shop";
 
 const RouteSwitch = () => {
   return (
-    <HashRouter basename="/TheOdinProject/017-shopping-cart/build">
+    <HashRouter basename="/">
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/shop" element={<Shop />} />
