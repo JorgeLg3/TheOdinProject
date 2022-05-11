@@ -1,12 +1,12 @@
-import Item from "./Item";
+import ItemCard from "./ItemCard";
 
 
-const Shop = () => {
+const Shop = (props) => {
     return (
       <div>
         <h1>Hello from Shop</h1>
-        <div>
-            < Item name="Product 1" file="image1.jpg" price="25.88"/>
+        <div className="shop-grid">
+            {props.items.map((item) => <ItemCard id={item.id} name={item.name} file={item.image} price={item.price} description={item.description}/>)}
         </div>
       </div>
     );

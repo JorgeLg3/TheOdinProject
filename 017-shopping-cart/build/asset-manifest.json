@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/TheOdinProject/017-shopping-cart/build/static/js/main.542bba2a.js",
+    "main.js": "/TheOdinProject/017-shopping-cart/build/static/js/main.ef6d132a.js",
     "index.html": "/TheOdinProject/017-shopping-cart/build/index.html",
-    "main.542bba2a.js.map": "/TheOdinProject/017-shopping-cart/build/static/js/main.542bba2a.js.map"
+    "main.ef6d132a.js.map": "/TheOdinProject/017-shopping-cart/build/static/js/main.ef6d132a.js.map"
   },
   "entrypoints": [
-    "static/js/main.542bba2a.js"
+    "static/js/main.ef6d132a.js"
   ]
 }
