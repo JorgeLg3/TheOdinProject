@@ -13,6 +13,7 @@ const ItemPage = (props) => {
         <h2>{item.name}</h2>
         <h2>{item.price}$</h2>
         <p>{item.description}</p>
+        <button onClick={() => props.addToCart(id, item.name, item.price)}>Buy!</button>
         <button onClick={() => {navigate('/shop')}}>Back Market</button>
       </div>
     );

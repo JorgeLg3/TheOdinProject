@@ -4,10 +4,13 @@ const ItemCard = (props) => {
   let navigate = useNavigate();
   
   return (
-      <div onClick={() => navigate(`/shop/${props.id}`)}>
+      <div>
+        <div onClick={() => navigate(`/shop/${props.id}`)}>
         <img src={`imgs/${props.file}`} alt="item"></img>
         <h2>{props.name}</h2>
         <h2>{props.price}$</h2>
+      </div>
+      <button onClick={() => props.addToCart(props.id, props.name, props.price)}>Add to Cart</button>
       </div>
     );
   };

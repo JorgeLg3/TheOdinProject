@@ -6,7 +6,7 @@ const Shop = (props) => {
       <div>
         <h1>Hello from Shop</h1>
         <div className="shop-grid">
-            {props.items.map((item) => <ItemCard id={item.id} name={item.name} file={item.image} price={item.price} description={item.description}/>)}
+            {props.items.map((item) => <ItemCard id={item.id} name={item.name} file={item.image} price={item.price} description={item.description} addToCart={props.addToCart}/>)}
         </div>
       </div>
     );
