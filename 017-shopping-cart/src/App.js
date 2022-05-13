@@ -6,6 +6,7 @@ import ErrorPage from "./components/ErrorPage";
 import ItemPage from "./components/ItemPage";
 import Cart from './components/Cart';
 import items from "./items";
+import './index.css';
 
 const App = () => {
   const [showCart, setShowCart] = useState(false);

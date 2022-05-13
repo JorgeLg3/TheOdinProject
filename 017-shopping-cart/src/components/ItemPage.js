@@ -9,7 +9,7 @@ const ItemPage = (props) => {
 
     return (
       <div>
-        <img src={`imgs/${item.file}`} alt={item.name}></img>
+        <img src={item.imagej} alt={item.name}></img>
         <h2>{item.name}</h2>
         <h2>{item.price}$</h2>
         <p>{item.description}</p>
