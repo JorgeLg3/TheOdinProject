@@ -43,7 +43,7 @@ const App = () => {
   
   return (
     <HashRouter basename="/">
-        <Header showCart={changeCartVisibility}/>
+        <Header showEvent={changeCartVisibility} show={showCart}/>
         <Cart show={showCart} cartItems={cart}/>
       <Routes>
         <Route path="/" element={<Home />} />

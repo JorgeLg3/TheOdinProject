@@ -9,7 +9,7 @@ const Header = (props) => {
             <NavLink to="/"> HOME </NavLink>
             <NavLink to="/shop"> SHOP </NavLink>
         </nav>
-        <CartIcon className="material-icons" onClick={() => props.showCart()}>shopping_cart</CartIcon>
+        <CartIcon className="material-icons" onClick={() => props.showEvent()}>{props.show === true ? 'close' : 'shopping_cart'}</CartIcon>
       </HeaderBar>
     );
   };
@@ -30,6 +30,7 @@ const NavLink = styled(Link)`
   font-family: sans-serif;
   color: #ffffff;
   margin-right: 2rem;
+  font-size: 1rem;
 `
 
 const CartIcon = styled.span`

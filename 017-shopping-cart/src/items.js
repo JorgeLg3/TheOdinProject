@@ -20,45 +20,45 @@ import img18 from './assets/imgs/img18.jpg';
 const items = [
     {
         id: '001',
-        name: 'Shirt',
+        name: 'YELLOW LEMON',
         image: img1,
         description: 'Awesome description fo the product ...',
         price: 49.99
     },
     {
         id: '002',
-        name: 'Item2',
+        name: 'ELEGANT SUIT',
         image: img2,
         description: 'Awesome description fo the product ...',
-        price: 39.99
+        price: 89.99
     },
     {
         id: '003',
-        name: 'Item3',
+        name: 'CASUAL OUTFIT',
         image: img3,
         description: 'Awesome description fo the product ...',
-        price: 39.99
+        price: 59.99
     },
     {
         id: '004',
-        name: 'Item4',
+        name: 'CRAZZY GLASSES',
         image: img4,
         description: 'Awesome description fo the product ...',
-        price: 39.99
+        price: 12.55
     },
     {
         id: '005',
-        name: 'Item5',
+        name: 'GRAY PPLAID COAT',
         image: img5,
         description: 'Awesome description fo the product ...',
-        price: 39.99
+        price: 39.65
     },
     {
         id: '006',
-        name: 'Item6',
+        name: 'BERET & HEELS',
         image: img6,
         description: 'Awesome description fo the product ...',
-        price: 39.99
+        price: 55.49
     },
     {
         id: '007',
