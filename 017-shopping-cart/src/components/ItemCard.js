@@ -22,6 +22,9 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
 `;  
 
 const Subcard = styled.div`

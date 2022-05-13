@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import { HashRouter, Routes, Route, Link } from "react-router-dom";
+import styled from 'styled-components';
+
 import Home from "./components/Home";
 import Shop from "./components/Shop";
 import ErrorPage from "./components/ErrorPage";
 import ItemPage from "./components/ItemPage";
 import Cart from './components/Cart';
+import Header from './components/Header';
 import items from "./items";
 import './index.css';
 
@@ -33,17 +36,15 @@ const App = () => {
   useEffect(() =>{
     console.log(cart);
   }, [cart]);
+
+  function changeCartVisibility(){
+    setShowCart(!showCart)
+  }
   
   return (
     <HashRouter basename="/">
-        <div className="header">
-        <nav>
-            <Link to="/"> Home </Link>
-            <Link to="/shop"> Shop </Link>
-        </nav>
-        <button onClick={() => setShowCart(!showCart)}>Cart</button>
+        <Header showCart={changeCartVisibility}/>
         <Cart show={showCart} cartItems={cart}/>
-        </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop items={items} addToCart={addElementToCart}/>} />
@@ -53,5 +54,7 @@ const App = () => {
     </HashRouter>
   );
 };
+
+
 
 export default App;

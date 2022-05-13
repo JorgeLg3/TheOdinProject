@@ -1,5 +1,6 @@
 import items from "../items";
 import {useParams, useNavigate} from 'react-router-dom';
+import styled from 'styled-components';
 
 const ItemPage = (props) => {
     const {id} =useParams();
@@ -9,7 +10,7 @@ const ItemPage = (props) => {
 
     return (
       <div>
-        <img src={item.imagej} alt={item.name}></img>
+        <Img src={item.image} alt={item.name}></Img>
         <h2>{item.name}</h2>
         <h2>{item.price}$</h2>
         <p>{item.description}</p>
@@ -19,4 +20,9 @@ const ItemPage = (props) => {
     );
   };
   
+  const Img = styled.img`
+    height: 90vh;
+    width: 60vh;
+  `;
+
   export default ItemPage;
