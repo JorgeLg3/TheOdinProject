@@ -48,7 +48,7 @@ const items = [
     },
     {
         id: '005',
-        name: 'GRAY PPLAID COAT',
+        name: 'GRAY PLAID COAT',
         image: img5,
         description: 'Awesome description fo the product ...',
         price: 39.65
