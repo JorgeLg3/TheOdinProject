@@ -21,13 +21,13 @@ const Cart = (props) => {
             {props.nItems === 0 &&
               <p>Your shopping cart is empty!</p>
             }
-            {props.cartItems.map((item) => <CartItem name={item.name} price={item.price} number={item.number}></CartItem>)}
+            {props.cartItems.map((item) => <CartItem name={item.name} price={item.price} number={item.number} id={item.id} deleteItem={props.deleteItem}></CartItem>)}
         </CartMain>
         
         <CartFooter>
             <Line></Line>
             <Total>TOTAL: {total}$</Total>
-            <PaymentButton>Proceed to Payment</PaymentButton>
+            <PaymentButton>CHECKOUT</PaymentButton>
         </CartFooter>
         
       </CartDisplay>
@@ -83,16 +83,16 @@ const PaymentButton = styled.button`
   align-self: center;
   margin-top: 1.5rem;
   border: none;
-  background-color: #232;
+  background-color: #121;
   color: #fff;
-  padding: 0.3rem 1rem;
-  border-radius: 5px;
+  padding: 0.5rem 3rem;
+  border-radius: 2px;
   cursor: pointer;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 0.9rem;
 
   &:hover{
-      background-color: #343;
+      background-color: #232;
   }
 `;
 

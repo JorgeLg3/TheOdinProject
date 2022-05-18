@@ -57,7 +57,7 @@ const AddButton = styled.button`
   align-self: stretch;
   background-color: #010;
   border: none;
-  border-radius: 4px;
+  border-radius: 2px;
   color: white;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1rem;

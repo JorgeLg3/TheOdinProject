@@ -29,35 +29,35 @@ const items = [
         id: '002',
         name: 'ELEGANT SUIT',
         image: img2,
-        description: 'Awesome description fo the product ...',
+        description: 'Awesome description of the product ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum praesentium vero voluptas voluptatum quas fugit dicta dolorum totam ipsam exercitationem!',
         price: 89.99
     },
     {
         id: '003',
         name: 'CASUAL OUTFIT',
         image: img3,
-        description: 'Awesome description fo the product ...',
+        description: 'Awesome description of the product ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum praesentium vero voluptas voluptatum quas fugit dicta dolorum totam ipsam exercitationem!',
         price: 59.99
     },
     {
         id: '004',
         name: 'CRAZZY GLASSES',
         image: img4,
-        description: 'Awesome description fo the product ...',
+        description: 'Awesome description of the product ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum praesentium vero voluptas voluptatum quas fugit dicta dolorum totam ipsam exercitationem!',
         price: 12.55
     },
     {
         id: '005',
         name: 'GRAY PLAID COAT',
         image: img5,
-        description: 'Awesome description fo the product ...',
+        description: 'Awesome description of the product ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum praesentium vero voluptas voluptatum quas fugit dicta dolorum totam ipsam exercitationem!',
         price: 39.65
     },
     {
         id: '006',
         name: 'BERET & HEELS',
         image: img6,
-        description: 'Awesome description fo the product ...',
+        description: 'Awesome description of the product ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum praesentium vero voluptas voluptatum quas fugit dicta dolorum totam ipsam exercitationem!',
         price: 55.49
     },
     {

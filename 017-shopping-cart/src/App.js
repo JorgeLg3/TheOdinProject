@@ -32,11 +32,18 @@ const App = () => {
       newCart[index].number += Number(number);
       setCart(newCart);
     }
-    setNItems(nItems+Number(number));
+  }
+
+  function deleteCartItem(id){
+    setCart(cart.filter((item) => item.id !== id));
   }
 
   useEffect(() =>{
-    console.log(cart);
+    setNItems(cart.reduce((sum, item)=> {
+      return sum + (item.number);
+    }, 0)
+    );
+    //console.log(cart);
   }, [cart]);
 
   function changeCartVisibility(){
@@ -46,7 +53,7 @@ const App = () => {
   return (
     <HashRouter basename="/">
         <Header showEvent={changeCartVisibility} show={showCart} nItems={nItems}/>
-        <Cart show={showCart} cartItems={cart} nItems = {nItems}/>
+        <Cart show={showCart} cartItems={cart} nItems={nItems} deleteItem={deleteCartItem}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop items={items} addToCart={addElementToCart}/>} />
