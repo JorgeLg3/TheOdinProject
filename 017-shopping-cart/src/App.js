@@ -24,7 +24,7 @@ const App = () => {
         id : newItem,
         name : name,
         price: price,
-        number : number
+        number : Number(number),
       }
       setCart(cart.concat(addItem))
     } else{
