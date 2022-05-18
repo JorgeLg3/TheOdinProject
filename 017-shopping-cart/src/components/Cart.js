@@ -8,7 +8,7 @@ const Cart = (props) => {
 
     useEffect(() =>{
         const subtotal = props.cartItems.reduce((sum, item)=> {
-            return sum + (item.price*item.amount);
+            return sum + (item.price*item.number);
         }, 0);
         setTotal(Math.round(subtotal * 100) / 100);
       }, [props.cartItems]);
@@ -18,7 +18,10 @@ const Cart = (props) => {
         
         <CartTitle>YOUR SHOPPING BAG</CartTitle>
         <CartMain>
-            {props.cartItems.map((item) => <CartItem name={item.name} price={item.price} amount={item.amount}></CartItem>)}
+            {props.nItems === 0 &&
+              <p>Your shopping cart is empty!</p>
+            }
+            {props.cartItems.map((item) => <CartItem name={item.name} price={item.price} number={item.number}></CartItem>)}
         </CartMain>
         
         <CartFooter>

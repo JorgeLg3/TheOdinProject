@@ -2,8 +2,11 @@ import styled from 'styled-components';
 import backgroundImg from '../assets/imgs/background.jpg';
 import img1 from '../assets/imgs/img16.jpg';
 import img2 from '../assets/imgs/img9.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  let navigate = useNavigate();
+  
   return (
     <HomeContainer>
       <Text>
@@ -11,7 +14,7 @@ const Home = () => {
         <SubTitle>"Fashion for Fashion"</SubTitle>
       </Text>
       <ShopDisplay>
-        <Button>Start!</Button>
+        <Button onClick={() => navigate(`/shop`)}>Start!</Button>
         <Card1></Card1>
         <Card2></Card2>
         <Card3></Card3>

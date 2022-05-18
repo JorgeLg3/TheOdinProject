@@ -9,7 +9,13 @@ const Header = (props) => {
             <NavLink to="/"> HOME </NavLink>
             <NavLink to="/shop"> SHOP </NavLink>
         </nav>
-        <CartIcon className="material-icons" onClick={() => props.showEvent()}>{props.show === true ? 'close' : 'shopping_cart'}</CartIcon>
+        <div>
+          <CartIcon className="material-icons" onClick={() => props.showEvent()}>{props.show === true ? 'close' : 'shopping_cart'}</CartIcon>
+          <CartCounter nItems={props.nItems} show={props.show}>{props.nItems}</CartCounter>
+          
+          
+        </div>
+        
       </HeaderBar>
     );
   };
@@ -23,6 +29,10 @@ const HeaderBar = styled.div`
     color: #ffffff;
     position: sticky;
     top: 0;
+
+    > div{
+      position: relative;
+    }
 `;
 
 const NavLink = styled(Link)`
@@ -33,12 +43,31 @@ const NavLink = styled(Link)`
   font-size: 1rem;
 `
 
-const CartIcon = styled.span`
+const CartIcon = styled.div`
   cursor: pointer;
-
+  position: relative;
   &:hover {
       color: #aaa;
   }
 `;
+
+const CartCounter = styled.div`
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background-color: rgba(150,150,150, 0.8);
+  position: absolute;
+  right: -3px;
+  top: -5px;
+  border: solid 1px black;
+  outline: solid 1px rgba(150,150,150, 0.8);
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  transition: 0.75s;
+  opacity: ${(props) => ((props.show === false && props.nItems > 0) ? '1' : '0')};
+`
 
 export default Header;

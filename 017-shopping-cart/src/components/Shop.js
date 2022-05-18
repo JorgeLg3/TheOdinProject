@@ -15,7 +15,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-auto-rows: calc(1.6*minmax(350px, 1fr));
-  gap: 1rem;
+  gap: 2rem 1rem;
   padding: 2rem;
 `;
 

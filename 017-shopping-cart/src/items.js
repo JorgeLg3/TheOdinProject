@@ -22,7 +22,7 @@ const items = [
         id: '001',
         name: 'YELLOW LEMON',
         image: img1,
-        description: 'Awesome description fo the product ...',
+        description: 'Awesome description of the product ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum praesentium vero voluptas voluptatum quas fugit dicta dolorum totam ipsam exercitationem!',
         price: 49.99
     },
     {

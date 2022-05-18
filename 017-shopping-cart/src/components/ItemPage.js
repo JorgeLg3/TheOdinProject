@@ -1,5 +1,6 @@
 import items from "../items";
 import {useParams, useNavigate} from 'react-router-dom';
+import {useState} from 'react';
 import styled from 'styled-components';
 
 const ItemPage = (props) => {
@@ -7,22 +8,66 @@ const ItemPage = (props) => {
     const item = items.find(x => x.id === id);
     
     let navigate = useNavigate();
+    const [number, setNumber] = useState(1);
+
+    const onChangeHandler = event => {
+      setNumber(event.target.value);
+    }
 
     return (
-      <div>
+      <PageContainer>
         <Img src={item.image} alt={item.name}></Img>
-        <h2>{item.name}</h2>
-        <h2>{item.price}$</h2>
-        <p>{item.description}</p>
-        <button onClick={() => props.addToCart(id, item.name, item.price)}>Buy!</button>
-        <button onClick={() => {navigate('/shop')}}>Back Market</button>
-      </div>
+        <InfoContainer>
+            <Title>{item.name}</Title>
+            <Description>{item.description}</Description>
+            <Price>{item.price}$</Price>
+            <Input type='number' value={number} onChange={onChangeHandler}></Input>
+            <button onClick={() => props.addToCart(id, item.name, item.price, number)}>Buy!</button>
+            <button onClick={() => {navigate('/shop')}}>Back Market</button>
+        </InfoContainer>
+        
+        </PageContainer>
     );
   };
   
   const Img = styled.img`
-    height: 90vh;
-    width: 60vh;
+    height: 80vh;
+    width: 56vh;
+  `;
+
+  const PageContainer = styled.div`
+    display: flex;
+    padding: 2rem 1rem;
+    gap: 2rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    flex-wrap: wrap;
+    justify-content: center;
+  `;
+
+  const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  max-width: 40vh;
+  `;
+
+  const Title = styled.h1`
+    font-size: 2rem;
+  `;
+
+  const Description = styled.p`
+    font-size: 1rem;
+  `
+
+  const Price = styled.h2`
+    font-size: 1.2rem;
+    align-self: flex-end;
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+  `;
+
+  const Input = styled.input`
+    
   `;
 
   export default ItemPage;

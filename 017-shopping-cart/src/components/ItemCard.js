@@ -9,11 +9,11 @@ const ItemCard = (props) => {
         <Subcard>
           <ImgCard src={props.file} alt="item"  onClick={() => navigate(`/shop/${props.id}`)}></ImgCard>
           <Info>
-            <h2>{props.name}</h2>
-            <h2>{props.price}$</h2>
-            <span onClick={() => props.addToCart(props.id, props.name, props.price)} className='material-icons'>add_shopping_cart</span>
+            <Text>{props.name}</Text>
+            <Text>{props.price}$</Text>
           </Info>
         </Subcard>
+        <AddButton onClick={() => props.addToCart(props.id, props.name, props.price)} className='material-icons'>ADD TO CART</AddButton>
         
       </Card>
     );
@@ -41,24 +41,32 @@ const Info = styled.div`
   font-size: 1rem;
   box-sizing: border-box;
   padding: 0.4rem 1.5rem 1rem 0.5rem;
+`;
 
-  > span {
-    background-color: #232;
-    color: white;
-    padding: 0.2rem;
-    border-radius: 3px;
-    cursor:pointer;
-
-    :hover{
-      background-color: #343;
-    }
-  }
+const Text = styled.div`
+  font-size: 1.4rem;
 `;
 
 const ImgCard = styled.img`
   height: 100%;
   width: 100%;
   cursor: pointer;
+`;
+
+const AddButton = styled.button`
+  align-self: stretch;
+  background-color: #010;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+
+  :hover{
+    background-color: #121;
+  }
 `;
 
 export default ItemCard;

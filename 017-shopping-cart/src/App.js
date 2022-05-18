@@ -14,23 +14,25 @@ import './index.css';
 const App = () => {
   const [showCart, setShowCart] = useState(false);
   const [cart, setCart] = useState([]);
+  const [nItems, setNItems] = useState(0);
 
   //addElement to Cart
-  function addElementToCart(newItem, name, price, amount=1){
+  function addElementToCart(newItem, name, price, number=1){
     const index = cart.findIndex(x => x.id === newItem)
     if(index === -1){
       const addItem = {
         id : newItem,
         name : name,
         price: price,
-        amount : amount
+        number : number
       }
       setCart(cart.concat(addItem))
     } else{
       let newCart = [...cart];
-      newCart[index].amount += amount;
+      newCart[index].number += Number(number);
       setCart(newCart);
     }
+    setNItems(nItems+Number(number));
   }
 
   useEffect(() =>{
@@ -43,8 +45,8 @@ const App = () => {
   
   return (
     <HashRouter basename="/">
-        <Header showEvent={changeCartVisibility} show={showCart}/>
-        <Cart show={showCart} cartItems={cart}/>
+        <Header showEvent={changeCartVisibility} show={showCart} nItems={nItems}/>
+        <Cart show={showCart} cartItems={cart} nItems = {nItems}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop items={items} addToCart={addElementToCart}/>} />
