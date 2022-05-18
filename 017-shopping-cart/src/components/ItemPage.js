@@ -1,5 +1,5 @@
 import items from "../items";
-import {useParams, useNavigate} from 'react-router-dom';
+import {useParams, useNavigate, Link} from 'react-router-dom';
 import {useState} from 'react';
 import styled from 'styled-components';
 
@@ -18,12 +18,25 @@ const ItemPage = (props) => {
       <PageContainer>
         <Img src={item.image} alt={item.name}></Img>
         <InfoContainer>
-            <Title>{item.name}</Title>
+          <div>
+          <Title>{item.name}</Title>
             <Description>{item.description}</Description>
             <Price>{item.price}$</Price>
-            <Input type='number' value={number} onChange={onChangeHandler}></Input>
-            <button onClick={() => props.addToCart(id, item.name, item.price, number)}>Buy!</button>
-            <button onClick={() => {navigate('/shop')}}>Back Market</button>
+          </div>
+          <div>
+          <ResumeBox>
+            <p>x {number}</p>
+            <p>{item.price*number}$</p>
+          </ResumeBox>
+          <BuyDiv>
+              <Input type='number' value={number} onChange={onChangeHandler}></Input>
+              <AddButton onClick={() => props.addToCart(id, item.name, item.price, number)}>ADD TO CART</AddButton>
+            </BuyDiv>
+            
+            <BackLink to="/shop">Back Shop</BackLink>
+          </div>
+            
+            
         </InfoContainer>
         
         </PageContainer>
@@ -49,6 +62,7 @@ const ItemPage = (props) => {
   flex-direction: column;
   padding: 2rem 1rem;
   max-width: 40vh;
+  justify-content: space-between;;
   `;
 
   const Title = styled.h1`
@@ -61,13 +75,50 @@ const ItemPage = (props) => {
 
   const Price = styled.h2`
     font-size: 1.2rem;
-    align-self: flex-end;
+    text-align: left;
     margin-top: 1rem;
-    padding: 0 0.5rem;
+  `;
+
+  const ResumeBox = styled.div`
+    display: flex;
+    margin-top: 4rem;
+    justify-content: flex-end;
+    gap: 2rem;
+    margin-right: 1rem;
+  `;
+
+  const BuyDiv = styled.div`
+    display: flex;
+    margin-top: 1rem;
+    height: 2rem;
   `;
 
   const Input = styled.input`
-    
+    padding: 0rem 1rem;
+    width: 3rem;
+    font-family: 'Roboto Condensed', sans-serif;
+  `;
+
+  const AddButton = styled.button`
+    flex: 1;
+    color: #fff;
+    background-color: #010;
+    cursor: pointer;
+    font-family: 'Roboto Condensed', sans-serif;
+    border: none;
+
+    :hover{
+      background-color: #121;
+    }
+
+  `;
+
+  const BackLink = styled(Link)`
+   color: #232;
+   display: flex;
+   justify-content: flex-end;
+   margin-top: 2rem;
+   margin-right: 1rem;
   `;
 
   export default ItemPage;
