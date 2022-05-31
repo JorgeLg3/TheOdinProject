@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/TheOdinProject/020-personal-portfolio/build/static/css/main.e6c13ad2.css",
-    "main.js": "/TheOdinProject/020-personal-portfolio/build/static/js/main.e504d814.js",
+    "main.css": "/TheOdinProject/020-personal-portfolio/build/static/css/main.22cc6287.css",
+    "main.js": "/TheOdinProject/020-personal-portfolio/build/static/js/main.0ce21495.js",
     "static/media/img1.png": "/TheOdinProject/020-personal-portfolio/build/static/media/img1.09c3ee68464583f2f5aa.png",
     "index.html": "/TheOdinProject/020-personal-portfolio/build/index.html",
-    "main.e6c13ad2.css.map": "/TheOdinProject/020-personal-portfolio/build/static/css/main.e6c13ad2.css.map",
-    "main.e504d814.js.map": "/TheOdinProject/020-personal-portfolio/build/static/js/main.e504d814.js.map"
+    "main.22cc6287.css.map": "/TheOdinProject/020-personal-portfolio/build/static/css/main.22cc6287.css.map",
+    "main.0ce21495.js.map": "/TheOdinProject/020-personal-portfolio/build/static/js/main.0ce21495.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.e504d814.js"
+    "static/css/main.22cc6287.css",
+    "static/js/main.0ce21495.js"
   ]
 }

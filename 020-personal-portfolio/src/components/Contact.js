@@ -1,9 +1,10 @@
 import img1 from '../assets/img1.png';
+import '../styles/Contact.css';
 
 function Contact() {
 
     return (
-        <div>
+        <div className='contact'>
             <div>
                 <h1>Contact me</h1>
                 <p>Please get in touch if you think our work could be mutually beneficial!</p>
