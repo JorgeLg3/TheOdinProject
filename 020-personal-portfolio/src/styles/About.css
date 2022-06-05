@@ -1,20 +1,21 @@
 .about{
     padding: 3rem;
-    display: flex;
-    background-color: #0891B2;
 }
 
 .portrait{
     box-shadow: 5px 10px 10px rgba(0, 0, 0, .5);
-    width: 550px;
+    min-width: 550px;
     height: 550px;
     background-image: url(../assets/img1.png);
     background-size: cover;
     background-position: center;
-    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    float: left;
+    margin-top: -30px;
+    margin-left: 30px;
+    margin-right: 20px;
 }
 
 
@@ -25,15 +26,19 @@
 .about-me-container{
     box-shadow: 5px 10px 10px rgba(0, 0, 0, .5);
     padding:  2rem;
-    z-index: 1;
-    margin: 4rem -1rem;
+    margin: 1rem 60px;
     background-color: #fff;
+    font-size: 28px;
+}
+
+.social{
+    display: flex;
+    justify-content:end;
+    gap: 1rem;
 }
 
 @media (max-width: 1024px){
     .about-me-container{
-        margin: 4rem 3rem -3rem -3rem;
-        padding-left: 5rem;
     }
     .portrait{
         min-width: 300px;
@@ -45,7 +50,33 @@
     .about{
         display: flex;
         flex-direction: column;
-        margin: 0;
         padding: 1rem;
     }
+    .about-me-container{
+        margin: 0.5rem;
+        background: none;
+        box-shadow: none;
+    }
+    .portrait{
+        margin: 0.5rem;
+    }
+}
+
+.background{
+    position: absolute;
+    top: -90px;
+    left: 0;
+    width: 100%;
+    z-index: -100;
+}
+
+.rectangle {
+    height: 400px;
+    background-color: #0891B2;
+    border: 0;
+}
+
+.triangle {
+    height: 300px;
+    background: linear-gradient(to bottom right, #0891B2 0%, #0891B2 50%, #fff 50%, #fff 100%);
 }
