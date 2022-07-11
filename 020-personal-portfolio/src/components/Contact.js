@@ -5,27 +5,27 @@ function Contact() {
 
     return (
         <div className='contact'>
-            <div>
+            <div className='contact-box'>
                 <h1>Contact me</h1>
                 <p>Please get in touch if you think our work could be mutually beneficial!</p>
-                <p>1234 random Road
-                    Random Town, California 12345
-                </p>
-                <div>
-                    <span>phone</span>
+                <p>1234 random Road Random Town, California 12345</p>
+                <div className='contact-field'>
+                    <i class="fa-solid fa-phone"></i>
                     <span>555-555-5555</span>
                 </div>
-                <div>
-                    <span>email</span>
+                <div className='contact-field'>
+                    <i class="fa-solid fa-envelope"></i>
                     <span>ashleywilliams.is.not.real@gmail.com</span>
                 </div>
-                <div>
-                    <span>Github</span>
-                    <span>Linkedin</span>
-                    <span>Twitter</span>
+                <div className='social'>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <i class="fa-brands fa-github"></i>
                 </div>
             </div>
-            <img alt="potrait" src={img1}></img>
+            <div className='contact-img-card'>
+                <img alt="Project screenshot" src={img1}></img>
+            </div>
         </div>
         
     );

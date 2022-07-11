@@ -1,3 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
 .contact{
     background-color: #0891B2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+    font-family: 'Roboto', sans-serif;
+}
+
+.contact-box{
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.social{
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.social i{
+    color: black;
+    font-size: 28px;
+}
+
+.contact-img-card{
+    padding: 2rem;
+
+}
+
+.contact-img-card img{
+    object-fit:fill;
+}
+
+.contact-field{
+    display: flex;
+    gap: 1rem;
 }

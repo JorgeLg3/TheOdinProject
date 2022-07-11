@@ -8,8 +8,14 @@ function PortfolioCard(props) {
             <div className='img-card'>
                <img alt="Project screenshot" src={img1}></img>
             </div>
-            <div>
-                <h2>{props.name}</h2>
+            <div className='card-info'>
+                <div className='first-block'>
+                    <h2>{props.name}</h2>
+                    <div className='links'>
+                        <i class="fa-brands fa-github"></i>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </div>
+                </div>
                 <p>{props.description}</p>
             </div>
             

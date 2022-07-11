@@ -1,7 +1,11 @@
 .portfolio-grid {
-    background-color: #ff;
+    background-color: #fff;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
     gap: 2rem;
     padding: 3rem;
+}
+
+h1{
+    margin-left: 1rem;
 }
